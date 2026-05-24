@@ -1,0 +1,87 @@
+import react from "react";
+import React from "react";
+import { useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+export default function AllVolleyball() {
+  const matchData = useOutletContext();
+  let allmatches = matchData;
+  console.log("log matc da", allmatches);
+
+  const match = allmatches?.matchData || [];
+
+  return (
+    <>
+      {match?.map((item, index) => {
+        console.log("this is the value og item", item);
+        return (
+          <div key={index} className="p-[24px]">
+            <div className="flex gap-[20px] items-center">
+              <img className="w-[40px] h-[40px]" src={item?.logo} alt="" />
+
+              <div className="flex flex-col">
+                <h1 className="h1Font">{item.name}</h1>
+                <span className="spanFont">{item.country}</span>
+              </div>
+            </div>
+
+            {item.games?.map((game, index) => (
+              <NavLink
+                to={`/vaolleyball/vaolleyball/match/summary/${game.id}`}
+                key={index}
+              >
+                <div className="fTBoder flex justify-between   gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px]">
+                  <div className="flex justify-between gap-[20px] items-center  w-[100px]">
+                    <div>
+                      {game.status.short === "NS" ? (
+                        <h1>{game.time}</h1>
+                      ) : (
+                        <h1>{game.status.short}</h1>
+                      )}
+                    </div>
+                    <div className="flex">
+                      <div className="divBorder"></div>
+                    </div>
+                  </div>
+
+                  <div className="flex w-full justify-between">
+                    <div className="flex flex-col ">
+                      <div className="flex gap-1">
+                        <img
+                          className="w-[20px] h-[20px]"
+                          src={game.teams.home.logo}
+                        />
+                        <h1 className="text-center font-[600]">
+                          {game.teams.home.name}
+                        </h1>
+                      </div>
+                      <div className="flex gap-1">
+                        <img
+                          className="w-[20px] h-[20px]"
+                          src={game.teams.away.logo}
+                          alt=""
+                        />
+                        <h1 className="text-center font-[600]">
+                          {game.teams.away.name}
+                        </h1>
+                      </div>
+                    </div>
+
+                    <div className=" flex flex-col ">
+                      <h1 className="text-center font-[600]">
+                        {game.scores.home}
+                      </h1>
+
+                      <h1 className="text-center font-[600]">
+                        {game.scores.away}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </NavLink>
+            ))}
+          </div>
+        );
+      })}
+    </>
+  );
+}

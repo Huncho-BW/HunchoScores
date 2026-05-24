@@ -1,0 +1,174 @@
+
+.custom-date {
+  position: relative;
+  color: transparent;
+  caret-color: transparent;
+}
+
+/* Hide calendar icon */
+.custom-date::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  
+}
+
+/* Hide placeholder/date text */
+.custom-date::-webkit-datetime-edit {
+  color: transparent;
+}
+
+
+.h1Font{
+  font-weight: 700;
+  
+}
+
+.spanFont{
+  font-weight: 400;
+}
+
+.divBorder{
+  border: 1px solid;
+  border-left: 1px solid black;
+height: 20px;
+  
+}
+.liveBoder{
+ 
+ 
+}
+
+.infoboder{
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.fTBoder{
+  border: 1px solid black ;
+  margin-top: 20px;
+
+  border-radius: 8px;
+ display: flex;
+  
+}
+
+@media (min-width: 1024px)  {
+    .hiddenmenu {
+            display: none;
+        }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .hiddenHeader {
+      display: none;
+    }
+  
+    .hiddenLeftSLide {
+      display: none;
+    }
+  
+    .fontstyle {
+      font-size: medium;
+  
+    }
+  
+    .feedTest {
+      font-size: small;
+      font-weight: 700;
+      padding: 8px;
+  
+    }
+  
+  
+    .foodBall {
+      display: block;
+      width: 100%;
+      padding: 20px 20px;
+  
+    }
+  
+    .feedHadder {
+      display: flex;
+      margin-top: 24px;
+  
+      gap: 10px;
+      padding: 10px;
+  
+    }
+  
+    .rightBorder {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+  
+  
+    }
+  
+    .rightFont {
+      font-size: small;
+      font-weight: 700;
+      padding: 8px;
+    }
+}
+
+
+
+@media  (max-width: 640px) {
+   
+  .hiddenHeader{
+    display: none;
+  }
+  .hiddenLeftSLide{
+    display: none;
+  }
+
+  .fontstyle{
+    font-size: medium;
+
+  }
+
+  .feedTest{
+    font-size: small;
+    font-weight: 700;
+    padding: 8px;
+  
+  }
+
+
+  .foodBall{
+    display: block;
+    width: 100%;
+    padding: 20px 20px;
+    
+  }
+
+  .feedHadder{
+   display: flex;
+   margin-top: 24px;
+   
+   gap: 10px;
+   padding: 10px;
+
+  }
+
+  .rightBorder{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+   
+    
+  }
+
+  .rightFont{
+    font-size: small;
+      font-weight: 700;
+      padding: 8px;
+  }
+
+}
+
