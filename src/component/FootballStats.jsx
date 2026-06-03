@@ -1,43 +1,52 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 export default function FootballStats() {
   const { matchDetails } = useOutletContext();
-  const [stats, setStats] = useState([]);
 
   const match = matchDetails?.[0];
   console.log("print match", match);
   const fixtureId = match?.fixture?.id;
   console.log("stats fixture id ", fixtureId);
-  const xxxKey = "29dbc60ae1b563ce7c360fe4b20f8bb8";
-  const fetchStats = async () => {
-    try {
-      const respond = await axios.get(
-        `https://v3.football.api-sports.io/fixtures/statistics?fixture=${fixtureId}`,
-        {
-          headers: { "x-apisports-key": xxxKey },
-        },
-      );
+  const xxxKey = "a5da1f14f44d0b283ae6a626383c0b6b";
 
-      setStats(respond.data.response);
-      console.log("the result of our stat", respond.data.response);
-    } catch (err) {
-      console.log("any errror ", err);
-    }
+  const fetchStats = async () => {
+    const respond = await axios.get(
+      `https://v3.football.api-sports.io/fixtures/statistics?fixture=${fixtureId}`,
+      {
+        headers: { "x-apisports-key": xxxKey },
+      },
+    );
+
+    return respond.data;
   };
 
-  useEffect(() => {
-    if (!fixtureId) return;
-    fetchStats();
-  }, [fixtureId]);
-  if (!matchDetails || matchDetails.length === 0) return <p>loading</p>;
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["allStat", fixtureId],
+    queryFn: fetchStats,
+    staleTime: 1000 * 10 * 60,
+  });
 
-  console.log("let see if we got our id right", match);
+  const stats = data?.response || [];
+  console.log("stats data", stats);
+
+  if (stats.length === 0)
+    return <p className="text-center mt-4">Stats is not Avaliable</p>;
+
   const homeId = match?.teams?.home?.id;
   const awayId = match?.teams?.away?.id;
 
   const homeStat = stats.find((t) => t.team?.id === homeId);
   const awayStat = stats.find((t) => t.team?.id === awayId);
+
+  if (isLoading) return <p className="animate-pulse">Loading...</p>;
+
+  if (isError) {
+    console.error("React Query fetch error:", error); // <-- log the actual error
+    return <p>Something went wrong: {error?.message}</p>;
+  }
   return (
     <>
       <h1 className="text-center font-bold">Stat</h1>

@@ -30,8 +30,14 @@ export default function TennisRight({ seletedDate, setSelectedDate }) {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["allMatches", seletedDate],
+    queryKey: ["allMatches", seletedDate, userTimezone],
     queryFn: fetchMatches,
+    retry: 5,
+    retryDelay: 500,
+    staleTime: 1000 * 10 * 60,
+
+    refetchOnWindowFocus: true,
+    refetchIntervalInBackground: false,
   });
 
   const allMatches = data?.response || [];
@@ -190,7 +196,7 @@ export default function TennisRight({ seletedDate, setSelectedDate }) {
                 appearance-none custom-date    "
             />
             <CalendarTodayIcon
-              sx={{ fontSize: "30px" }}
+              sx={{ fontSize: "35px" }}
               onClick={openPicker}
               className="absolute
                 right-3
@@ -199,8 +205,8 @@ export default function TennisRight({ seletedDate, setSelectedDate }) {
                 cursor-pointer"
             />
             <h1
-              className="absolute right-3 text-center  mr-[] top-1/2
-                -translate-y-1/2"
+              className="absolute text-center ml-[10px] mr-[10px] right-3 pt-[2px] pl-[2px]  top-1/2
+          -translate-y-1/2"
             >
               {new Date(apiDate).toLocaleDateString("en-us", {
                 day: "numeric",

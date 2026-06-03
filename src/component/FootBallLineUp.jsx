@@ -6,6 +6,9 @@ export default function FootballIineUp() {
 
   const lineUpdata = matchDetails[0]?.lineups;
 
+  if (lineUpdata?.length === 0)
+    return <p className="text-center mt-4">Line Up is not Avaliable</p>;
+
   const homeStartingXI = lineUpdata[0]?.startXI || [];
   const awayStartingXI = lineUpdata[1]?.startXI || [];
 

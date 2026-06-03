@@ -17,7 +17,7 @@ export default function FootballInfo() {
 
   return (
     <div className="mt-[24px] pl-[20px] pr-[20px] pt-[10px] pb-[10px] mb-[20px]">
-      <h1 className="h1Font">match info</h1>
+      <h1 className="spanFont ">match info</h1>
       <div className="infoboder flex flex-wrap  justify-around items-center gap-2">
         <div className="flex items-center gap-1">
           <span>

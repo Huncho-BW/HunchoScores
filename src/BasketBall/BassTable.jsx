@@ -48,7 +48,7 @@ export default function BassTable() {
   const bassTable = data;
   console.log("the standing ,", bassTable);
 
-  if (!bassTable?.response?.length) {
+  if (bassTable?.response?.length === 0) {
     return (
       <div className="flex items-center justify-center h-40">
         <p className="text-gray-500 text-lg font-semibold">

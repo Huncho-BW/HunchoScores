@@ -13,6 +13,7 @@ export default function FootBallPlayerStats() {
   const [dropdown, setDropdown] = useState(false);
 
   const xxxKey = "6123d7ffb1095dda31a593ac87ad1232";
+
   const fetchSquad = async () => {
     const res = await axios.get(
       `https://v3.football.api-sports.io/players?team=${int}&season=${2024}`,

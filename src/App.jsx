@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <TimezoneProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/HunchoScores">
           <AppRoutes />
         </BrowserRouter>
       </TimezoneProvider>

@@ -1,5 +1,7 @@
 import React from "react";
-import { useOutletContext, NavLink } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Slider from "@mui/material/Slider";
 
 export default function Finishmatch() {
   const Allmatches = useOutletContext();
@@ -18,63 +20,91 @@ export default function Finishmatch() {
     }));
 
   const getMatchTime = (game) => "FT"; // Only FT matters
-
   return (
     <>
-      {match.map((item, index) => (
-        <div key={index} className="p-[24px]">
-          <div className="flex gap-[10px]">
-            <img className="w-[20px] h-[20px]" src={item.logo} alt="" />
-            <h1>{item.name}</h1>
+      {match.map((item, index) => {
+        return (
+          <div key={index} className="p-[24px]">
+            <div className="relative flex flex-col gap-[10px]">
+              <div className="flex gap-[20px]">
+                <img className="w-[40px] h-[40px]" src={item.logo} alt="" />
 
-            <div className="flex flex-col">
-              <span>{item.round}</span>
-              <span>{item.country}</span>
-            </div>
-          </div>
-
-          {item.games.map((game) => (
-            <NavLink
-              key={game.fixture.id}
-              to={`/match/summary/${game.fixture.id}`}
-            >
-              <div className="flex justify-between p-[24px] gap-[20px] w-full">
-                <div className="flex justify-start w-[100px]">
-                  <h1 className="font-semibold text-green-600">
-                    {getMatchTime(game)}
-                  </h1>
-                </div>
-
-                <div className="flex w-full justify-between">
-                  <div className="flex flex-col">
-                    <div className="flex gap-1">
-                      <img
-                        className="w-[20px] h-[20px]"
-                        src={game.teams.home.logo}
-                        alt={game.teams.home.name}
-                      />
-                      <h1>{game.teams.home.name}</h1>
-                    </div>
-                    <div className="flex gap-1">
-                      <img
-                        className="w-[20px] h-[20px]"
-                        src={game.teams.away.logo}
-                        alt={game.teams.away.name}
-                      />
-                      <h1>{game.teams.away.name}</h1>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col">
-                    <h1>{game.goals.home ?? "-"}</h1>
-                    <h1>{game.goals.away ?? "-"}</h1>
-                  </div>
-                </div>
+                <h1 className="h1Font">{item.name}</h1>
               </div>
-            </NavLink>
-          ))}
-        </div>
-      ))}
+
+              <div
+                className="absolute top-5
+               left-13 ml-[8px] flex flex-col"
+              >
+                <span className="spanFont">{item.round}</span>
+              </div>
+            </div>
+
+            {item.games?.map((game) => (
+              <NavLink
+                key={game.fixture.id}
+                to={`/match/summary/${game.fixture.id}`}
+              >
+                <div className="fTBoder">
+                  <div className="pr-[10px] pl-[10px] pt-[8px] pb-[8px] flex justify-between gap-[20px] w-full">
+                    <div className="flex justify-between gap-[20px] items-center w-[100px]">
+                      <div className="flex flex-col gap-2 justify-center">
+                        <h1
+                          className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
+                                : `h1Font text-left font-semibold"
+                        >
+                          {getMatchTime(game)}
+                        </h1>
+                      </div>
+
+                      <div className="flex">
+                        <div className="divBorder"></div>
+                      </div>
+                    </div>
+
+                    <div className="flex w-full justify-between">
+                      <div className="flex flex-col">
+                        <div className="flex gap-1 items-center">
+                          <img
+                            className="w-[20px] h-[20px]"
+                            src={game.teams.home.logo}
+                          />
+
+                          <h1 className="text-center font-[600]">
+                            {game.teams.home.name}
+                          </h1>
+                        </div>
+
+                        <div className="flex gap-1 items-center">
+                          <img
+                            className="w-[20px] h-[20px]"
+                            src={game.teams.away.logo}
+                            alt=""
+                          />
+
+                          <h1 className="text-center font-[600]">
+                            {game.teams.away.name}
+                          </h1>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <h1 className="text-center font-[700]">
+                          {game.goals.home ?? "-"}
+                        </h1>
+
+                        <h1 className="text-center font-[700]">
+                          {game.goals.away ?? "-"}
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </NavLink>
+            ))}
+          </div>
+        );
+      })}
     </>
   );
 }

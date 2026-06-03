@@ -20,7 +20,7 @@ export default function BaseLineup() {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["apiData", seletedDate],
+    queryKey: ["apiData"],
     queryFn: fetchMatches,
     retry: 5,
     retryDelay: 500,
@@ -30,7 +30,7 @@ export default function BaseLineup() {
     refetchIntervalInBackground: false,
   });
 
-  const lineUpdata = data;
+  const lineUpdata = data?.responses || [];
   console.log("baseBall line up", lineUpdata);
 
   const homeStartingXI = lineUpdata[0]?.startXI || [];
@@ -51,6 +51,16 @@ export default function BaseLineup() {
     homeCoach,
     awayCoach,
   );
+
+  if (lineUpdata.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-40">
+        <p className="text-gray-500 text-lg font-semibold">
+          Standings not available for this league on this plan 🚫
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>

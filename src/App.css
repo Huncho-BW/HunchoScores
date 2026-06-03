@@ -48,18 +48,73 @@ height: 20px;
   border-radius: 8px;
 }
 
-.fTBoder{
-  border: 1px solid black ;
-  margin-top: 20px;
+.fTBoder {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 16px;
+  display: flex;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
 
-  border-radius: 8px;
- display: flex;
-  
+.fTBoder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+.fTBoder {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 16px;
+  display: flex;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* LIVE state */
+.liveMatch {
+  background: #f9fafb;
+  /* still neutral */
+  border-left: 4px solid #22c55e;
+  /* green accent */
+}
+
+/* optional pulse dot instead of harsh red box */
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 1024px)  {
     .hiddenmenu {
             display: none;
+        }
+
+        .icon-size{
+          font-size: xx-large !important;
         }
 }
 
@@ -73,12 +128,12 @@ height: 20px;
     }
   
     .fontstyle {
-      font-size: medium;
+     font-size: larger;
   
     }
   
     .feedTest {
-      font-size: small;
+      font-size: large;
       font-weight: 700;
       padding: 8px;
   
@@ -95,14 +150,16 @@ height: 20px;
     .feedHadder {
       display: flex;
       margin-top: 24px;
-  
+      justify-content: space-between;
+      align-items: center;
       gap: 10px;
-      padding: 10px;
+      
   
     }
   
     .rightBorder {
-      padding: 10px;
+      padding-right: 20px;
+      padding-left: 20px;
       display: flex;
       align-items: center;
   
@@ -114,6 +171,57 @@ height: 20px;
       font-weight: 700;
       padding: 8px;
     }
+
+    .icon-size{
+      font-size: larger !important;
+    }
+
+
+         .dropdwon {
+           z-index: 1000;
+           background-color: whitesmoke;
+           display: flex;
+           flex-direction: column;
+           position: absolute;
+    
+           transform: translateY(57%);
+           width: 100%;
+           height: 100%;
+    
+           border-radius: 0 0 12px 12px;
+           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+           backdrop-filter: blur(8px);
+    
+           /* Animation */
+           animation: slideLeft 0.35s ease-out forwards;
+         }
+    
+         @keyframes slideLeft {
+           from {
+             opacity: 0;
+             transform: translateX(-30px) translateY(57%);
+           }
+    
+           to {
+             opacity: 1;
+             transform: translateX(0) translateY(57%);
+           }
+         }
+    
+         .icon {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           transition: all 2s ease;
+         }
+    
+         .rotate-open {
+           transform: rotate(180deg);
+         }
+    
+         .rotate-close {
+           transform: rotate(0deg);
+         }
 }
 
 
@@ -127,6 +235,11 @@ height: 20px;
     display: none;
   }
 
+
+  .genPad{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
   .fontstyle{
     font-size: medium;
 
@@ -143,7 +256,7 @@ height: 20px;
   .foodBall{
     display: block;
     width: 100%;
-    padding: 20px 20px;
+    
     
   }
 
@@ -152,8 +265,7 @@ height: 20px;
    margin-top: 24px;
    
    gap: 10px;
-   padding: 10px;
-
+  
   }
 
   .rightBorder{
@@ -170,5 +282,73 @@ height: 20px;
       padding: 8px;
   }
 
+.h1Font {
+  font-weight: 400;
+font-size:large;
+
+white-space: nowrap;
+
+}
+
+.spanFont {
+  font-weight: 400;
+  font-size: small;
+  white-space: nowrap;
+}
+  
+
+    .dropdwon {
+      z-index: 1000;
+      background-color: whitesmoke;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+  
+      transform: translateY(57%);
+      width: 100%;
+      height: 100%;
+  
+    border-radius: 0 0 12px 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(8px);
+  
+      /* Animation */
+      animation: slideLeft 0.35s ease-out forwards;
+    }
+  
+     @keyframes slideLeft {
+       from {
+         opacity: 0;
+         transform: translateX(-30px) translateY(57%);
+       }
+  
+       to {
+         opacity: 1;
+         transform: translateX(0) translateY(57%);
+       }
+     }
+  
+         .icon {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           transition: all 2s ease;
+         }
+    
+         .rotate-open {
+           transform: rotate(180deg);
+         }
+    
+         .rotate-close {
+           transform: rotate(0deg);
+         }
+    
+  .navText{
+    font-size: medium;
+    font-weight: 600;
+    padding: 20px;
+    margin: 0;
+
+  }
 }
 

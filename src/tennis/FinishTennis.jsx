@@ -6,92 +6,99 @@ export default function FinishTen() {
 
   const match = matchData?.matchData || [];
 
-  // ✅ finished statuses (baseball)
-  const finishedStatuses = ["FT", "AOT", "POST"];
+  // ✅ API-Sports baseball FINISHED statuses
+  const isFinished = (status) => ["FT", "POST", "CANC", "ABD"].includes(status);
 
-  // ✅ check if ANY finished match exists
-  const hasFinishedMatch = match.some((item) =>
-    item?.games?.some((game) => finishedStatuses.includes(game?.status?.short)),
+  // ✅ filter leagues that have finished games
+  const finishedMatches = match.filter((item) =>
+    item?.games?.some((game) => isFinished(game?.status?.short)),
   );
 
-  // ✅ if no finished match at all
-  if (!hasFinishedMatch) {
+  // ❌ empty state
+  if (!finishedMatches.length) {
     return (
       <div className="flex justify-center items-center h-[200px]">
-        <h1 className="text-gray-500 text-lg">No finished matches yet ⚾</h1>
+        <h1 className="text-gray-500 text-lg">
+          No finished baseball matches yet ⚾
+        </h1>
       </div>
     );
   }
 
   return (
     <>
-      {match.map((item, index) => {
-        const finishedGames = item?.games?.filter((game) =>
-          finishedStatuses.includes(game?.status?.short),
-        );
-
-        // ❌ hide league with no finished games
-        if (!finishedGames?.length) return null;
-
+      {finishedMatches.map((item, index) => {
         return (
           <div key={index} className="p-[24px]">
-            {/* LEAGUE HEADER */}
+            {/* LEAGUE */}
             <div className="flex gap-[10px] items-center">
               <img
-                className="w-[20px] h-[20px]"
-                src={item?.logo || "/fallback.png"}
+                className="w-[40px] h-[40px]"
+                src={item?.logo}
                 alt=""
                 onError={(e) => (e.target.src = "/fallback.png")}
               />
 
               <div className="flex flex-col">
-                <span>{item?.name}</span>
-                <span>{item?.country}</span>
+                <h1 className="h1Font">{item?.name}</h1>
+                <span className="spanFont">{item?.country}</span>
               </div>
             </div>
 
-            {/* FINISHED GAMES */}
-            {finishedGames.map((game, index) => (
-              <NavLink to={`/baseball/match/summary/${game.id}`} key={index}>
-                <div className="flex justify-between p-[24px] gap-[20px] w-full">
-                  {/* STATUS */}
-                  <div className="flex justify-start w-[100px]">
-                    <h1>{game?.status?.short}</h1>
-                  </div>
-
-                  <div className="flex w-full justify-between">
-                    {/* TEAMS */}
-                    <div className="flex flex-col">
-                      <div className="flex gap-1 items-center">
-                        <img
-                          className="w-[20px] h-[20px]"
-                          src={game?.teams?.home?.logo || "/fallback.png"}
-                          alt=""
-                          onError={(e) => (e.target.src = "/fallback.png")}
-                        />
-                        <h1>{game?.teams?.home?.name}</h1>
+            {/* FINISHED GAMES ONLY */}
+            {item?.games
+              ?.filter((game) => isFinished(game?.status?.short))
+              .map((game, index) => (
+                <NavLink to={`/baseball/match/summary/${game.id}`} key={index}>
+                  <div className="fTBoder flex justify-between gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px]">
+                    {/* STATUS */}
+                    <div className="flex justify-between gap-[20px] items-center  w-[100px] ">
+                      <div className="w-[100px]">
+                        <span className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold">
+                          FT
+                        </span>
                       </div>
-
-                      <div className="flex gap-1 items-center">
-                        <img
-                          className="w-[20px] h-[20px]"
-                          src={game?.teams?.away?.logo || "/fallback.png"}
-                          alt=""
-                          onError={(e) => (e.target.src = "/fallback.png")}
-                        />
-                        <h1>{game?.teams?.away?.name}</h1>
+                      <div className="flex">
+                        <div className="divBorder"></div>
                       </div>
                     </div>
 
-                    {/* SCORE */}
-                    <div className="flex flex-col">
-                      <h1>{game?.scores?.home?.total ?? "-"}</h1>
-                      <h1>{game?.scores?.away?.total ?? "-"}</h1>
+                    {/* TEAMS + SCORE */}
+                    <div className="flex w-full justify-between">
+                      {/* TEAMS */}
+                      <div className="flex flex-col">
+                        <div className="flex gap-1 items-center">
+                          <img
+                            className="w-[20px] h-[20px]"
+                            src={game?.teams?.home?.logo || "/fallback.png"}
+                            alt=""
+                          />
+                          <h1>{game?.teams?.home?.name}</h1>
+                        </div>
+
+                        <div className="flex gap-1 items-center">
+                          <img
+                            className="w-[20px] h-[20px]"
+                            src={game?.teams?.away?.logo || "/fallback.png"}
+                            alt=""
+                          />
+                          <h1>{game?.teams?.away?.name}</h1>
+                        </div>
+                      </div>
+
+                      {/* SCORE */}
+                      <div className="flex flex-col">
+                        <h1 className="font-[700]">
+                          {game?.scores?.home?.total ?? "-"}
+                        </h1>
+                        <h1 className="font-[700]">
+                          {game?.scores?.away?.total ?? "-"}
+                        </h1>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </NavLink>
-            ))}
+                </NavLink>
+              ))}
           </div>
         );
       })}

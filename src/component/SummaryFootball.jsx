@@ -67,9 +67,9 @@ export default function MatchFootballSummary() {
             </div>
 
             <div className="h-[134px] w-[100%]  mt-[24px] ">
-              <div className="flex items-center justify-around ">
+              <div className="flex items-center justify-center ">
                 <NavLink
-                  to={`/team/${item?.teams?.home?.id}/${item?.league?.name}/${item?.league?.season}`}
+                  to={`team/${item?.teams?.home?.id}/${item?.league?.name}/${item?.league?.season}`}
                 >
                   <div className="flex justify-center">
                     <img
@@ -85,7 +85,7 @@ export default function MatchFootballSummary() {
                     <span className="mx-2">vs</span>
                     <h1>{item.goals.away}</h1>
                   </div>
-                  <div className="flex justify-center">
+                  <div className="flex items-center justify-center">
                     <h1>{getTimeMatch(item)}</h1>
                   </div>
                 </div>
@@ -106,22 +106,22 @@ export default function MatchFootballSummary() {
 
             <div>
               <div className="flex justify-around gap-1 ">
-                <NavLink className="h1Font" to="info">
+                <NavLink className="spanFont" to="info">
                   Info
                 </NavLink>
-                <NavLink className="h1Font" to={`summary`}>
+                <NavLink className="spanFont" to={`summary`}>
                   summary
                 </NavLink>
-                <NavLink className="h1Font" to="stats">
+                <NavLink className="spanFont" to="stats">
                   Stats
                 </NavLink>
-                <NavLink className="h1Font" to="lineUp">
+                <NavLink className="spanFont" to="lineUp">
                   Line -up
                 </NavLink>
-                <NavLink className="h1Font" to="table">
+                <NavLink className="spanFont" to="table">
                   Table
                 </NavLink>
-                <NavLink className="h1Font" to="h2h">
+                <NavLink className="spanFont" to="h2h">
                   H 2 H
                 </NavLink>
               </div>

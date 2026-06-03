@@ -99,7 +99,7 @@ export default function FoodballRight({ seletedDate, setSelectedDate }) {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["apiData", seletedDate],
+    queryKey: ["apiData", seletedDate, timezone],
     queryFn: fetchMatches,
     retry: 5,
     retryDelay: 500,
@@ -139,7 +139,7 @@ export default function FoodballRight({ seletedDate, setSelectedDate }) {
 
       return acc;
     }, []);
-    console.log("this  is our sorted fixtures", sortFixtures);
+
     setAllMatches(matches);
   }, [sortFixtures]);
 
@@ -189,8 +189,8 @@ export default function FoodballRight({ seletedDate, setSelectedDate }) {
 
   console.log("log out api date", seletedDate);
   return (
-    <div className=" flex flex-col">
-      <div className=" relative rightBorder  flex w-full gap-[20px] p-[24px] items-center  justify-between  ">
+    <div className="  flex flex-col">
+      <div className=" relative rightBorder  flex w-full gap-[20px] p-[24px] items-center  justify-between ">
         <div className=" flex   w-full gap-[4px]">
           <NavLink
             to="all"
@@ -205,7 +205,7 @@ export default function FoodballRight({ seletedDate, setSelectedDate }) {
             LIVE
           </NavLink>
           <NavLink
-            to="/finish"
+            to="finish"
             className="rightFont text-[18px] font-[700]  bg-[#F5F5F5]  rounded-2xl p-2"
           >
             finish

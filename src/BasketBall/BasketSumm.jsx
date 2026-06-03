@@ -50,7 +50,7 @@ export default function BasketSumm() {
       <div className="h-[134px] w-[100%]  mt-[24px] ">
         <div className="flex items-center justify-around ">
           <NavLink>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center items-center">
               <img
                 className="w-[40px] h-[40px]"
                 src={BasSum?.teams?.home?.logo}
@@ -92,7 +92,7 @@ export default function BasketSumm() {
             </div>
           </div>
           <NavLink>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center items-center">
               <img
                 className="w-[40px] h-[40px]"
                 src={BasSum?.teams?.away?.logo}

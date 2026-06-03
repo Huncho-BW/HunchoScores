@@ -6,16 +6,26 @@ export default function AllHoc() {
   const matchData = useOutletContext();
   let allmatches = matchData;
 
-  const obj = Object.values(allmatches);
-
+  const obj = Object.values(allmatches || {});
   const match = obj.flatMap((item) => item);
-  console.log("log hockey match", match);
+
+  // 🔴 LIVE MATCHES
+  const isLive = (status) => {
+    return ["P1", "P2", "P3", "OT", "BT", "LIVE"].includes(status);
+  };
+
+  // ✅ FINISHED MATCHES
+  const isFinished = (status) => {
+    return ["FT", "AOT"].includes(status);
+  };
+
   return (
     <>
       {match?.map((item, index) => {
         return (
           <div key={index} className="p-[24px]">
-            <div className="flex gap-[10px] items-center">
+            {/* LEAGUE HEADER */}
+            <div className="flex gap-[20px] items-center">
               <img className="w-[40px] h-[40px]" src={item?.logo} alt="" />
 
               <div className="flex flex-col">
@@ -24,69 +34,93 @@ export default function AllHoc() {
               </div>
             </div>
 
-            {item?.games?.map((game, index) => {
-              console.log("this is my hockey match", game);
-              return (
-                <NavLink to={`/hockey/HocMatch/summary/${game.id}`} key={index}>
-                  <div className="fTBoder flex justify-between gap-[20px]   pr-[10px] pl-[10px] pt-[8px] pb-[8px] w-full">
-                    {/* TIME / STATUS */}
-                    <div className="flex justify-between gap-[20px] items-center  w-[100px]">
-                      <div>
-                        {game?.status?.short === "NS" ? (
-                          <h1>
-                            {game?.time ||
-                              new Date(game.date).toLocaleTimeString([], {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              })}
-                          </h1>
-                        ) : (
-                          <h1>{game?.status?.short}</h1>
-                        )}
-                      </div>
-                      <div className="flex">
-                        <div className="divBorder"></div>
-                      </div>
+            {/* GAMES */}
+            {item?.games?.map((game, index) => (
+              <NavLink to={`/hockey/HocMatch/summary/${game.id}`} key={index}>
+                <div
+                  className={`fTBoder flex justify-between gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px]
+                  
+                  ${isLive(game.status.short) ? "liveMatch" : ""}
+                  
+                  `}
+                >
+                  {/* TIME + BORDER */}
+                  <div className="flex justify-between gap-[20px] items-center w-[100px]">
+                    <div className="flex flex-col justify-center gap-2">
+                      {game.status.short === "NS" ? (
+                        <h1 className="h1Font">
+                          {game.time ||
+                            new Date(game.date).toLocaleTimeString([], {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                        </h1>
+                      ) : (
+                        <h1
+                          className={`h1Font ${
+                            isFinished(game.status.short)
+                              ? "bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold"
+                              : ""
+                          }`}
+                        >
+                          {game.status.short}
+                        </h1>
+                      )}
+
+                      {/* LIVE DOT */}
+                      {isLive(game.status.short) && (
+                        <div className="liveDot"></div>
+                      )}
                     </div>
 
-                    <div className="flex w-full justify-between">
-                      {/* TEAMS */}
-                      <div className="flex flex-col">
-                        <div className="flex gap-1">
-                          <img
-                            className="w-[20px] h-[20px]"
-                            src={game?.teams?.home?.logo}
-                          />
-                          <h1 className="text-center font-[700]">
-                            {game?.teams?.home?.name}
-                          </h1>
-                        </div>
-
-                        <div className="flex gap-1">
-                          <img
-                            className="w-[20px] h-[20px]"
-                            src={game?.teams?.away?.logo}
-                          />
-                          <h1 className="text-center font-[700]">
-                            {game?.teams?.away?.name}
-                          </h1>
-                        </div>
-                      </div>
-
-                      {/* SCORE */}
-                      <div className="flex flex-col">
-                        <h1 className="text-center font-[700]">
-                          {game?.scores?.home ?? "-"}
-                        </h1>
-                        <h1 className="text-center font-[700]">
-                          {game?.scores?.away ?? "-"}
-                        </h1>
-                      </div>
+                    <div className="flex">
+                      <div className="divBorder"></div>
                     </div>
                   </div>
-                </NavLink>
-              );
-            })}
+
+                  {/* TEAMS + SCORE */}
+                  <div className="flex w-full justify-between">
+                    {/* TEAMS */}
+                    <div className="flex flex-col">
+                      <div className="flex gap-1">
+                        <img
+                          className="w-[20px] h-[20px]"
+                          src={game?.teams?.home?.logo}
+                          alt=""
+                        />
+
+                        <h1 className="text-center font-[600]">
+                          {game?.teams?.home?.name}
+                        </h1>
+                      </div>
+
+                      <div className="flex gap-1">
+                        <img
+                          className="w-[20px] h-[20px]"
+                          src={game?.teams?.away?.logo}
+                          alt=""
+                        />
+
+                        <h1 className="text-center font-[600]">
+                          {game?.teams?.away?.name}
+                        </h1>
+                      </div>
+                    </div>
+
+                    {/* SCORE */}
+                    <div className="flex flex-col">
+                      <h1 className="text-center font-[600]">
+                        {game?.scores?.home ?? "-"}
+                      </h1>
+
+                      <h1 className="text-center font-[600]">
+                        {game?.scores?.away ?? "-"}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </NavLink>
+            ))}
           </div>
         );
       })}

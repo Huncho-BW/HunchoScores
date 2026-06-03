@@ -1,6 +1,7 @@
+import { all } from "axios";
 import React from "react";
-import { useOutletContext, NavLink } from "react-router-dom";
-
+import { useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export default function LiveBas() {
   const matchData = useOutletContext();
   let allmatches = matchData;
@@ -32,45 +33,63 @@ export default function LiveBas() {
   return (
     <>
       {match?.map((item, index) => {
+        console.log("this is the value og item", item);
         return (
           <div key={index} className="p-[24px]">
-            <div className="flex gap-[10px]">
-              <img className="w-[20px] h-[20px]" src={item?.logo} alt="" />
+            <div className="flex gap-[20px] items-center">
+              <img className="w-[40px] h-[40px]" src={item?.logo} alt="" />
 
               <div className="flex flex-col">
-                <span>{item.name}</span>
-                <span>{item.country}</span>
+                <h1 className="h1Font">{item.name}</h1>
+                <span className="spanFont">{item.country}</span>
               </div>
             </div>
 
             {item.games?.map((game, index) => (
               <NavLink to={`/basket/BasMatch/summary/${game.id}`} key={index}>
-                <div className="flex justify-between p-[24px] gap-[20px] w-full">
-                  <div className="w-[100px]">
-                    <h1>{game.status.short}</h1>
+                <div className="fTBoder liveMatch flex justify-between   gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px] ">
+                  <div className="flex justify-between gap-[20px] items-center  w-[100px] ">
+                    <div className="flex flex-col gap-2">
+                      {game.status.short === "NS" ? (
+                        <h1 className="h1Font">{game.time}</h1>
+                      ) : (
+                        <h1 className="h1Font">{game.status.short}</h1>
+                      )}
+
+                      <div className="flex justify-center">
+                        <div className="liveDot"></div>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      <div className="divBorder"></div>
+                    </div>
                   </div>
 
                   <div className="flex w-full justify-between">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col ">
                       <div className="flex gap-1">
                         <img
                           className="w-[20px] h-[20px]"
                           src={game.teams.home.logo}
                         />
-                        <h1>{game.teams.home.name}</h1>
+                        <h1 className="text-center font-[600]">
+                          {game.teams.home.name}
+                        </h1>
                       </div>
-
                       <div className="flex gap-1">
                         <img
                           className="w-[20px] h-[20px]"
                           src={game.teams.away.logo}
+                          alt=""
                         />
-                        <h1>{game.teams.away.name}</h1>
+                        <h1 className="text-center font-[600]">
+                          {game.teams.away.name}
+                        </h1>
                       </div>
                     </div>
 
-                    <div className="flex flex-col">
-                      <h1>
+                    <div className=" flex flex-col ">
+                      <h1 className="text-center font-[600]">
                         {[
                           game.scores.home.quarter_1,
                           game.scores.home.quarter_2,
@@ -79,7 +98,7 @@ export default function LiveBas() {
                         ].reduce((a, b) => a + b, 0)}
                       </h1>
 
-                      <h1>
+                      <h1 className="text-center font-[600]">
                         {[
                           game.scores.away.quarter_1,
                           game.scores.away.quarter_2,

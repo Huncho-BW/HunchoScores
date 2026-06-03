@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useOutletContext } from "react-router-dom";
+import TagIcon from "@mui/icons-material/Tag";
 
 export default function HockeyTable() {
   const hockeySum = useOutletContext();
@@ -49,34 +50,96 @@ export default function HockeyTable() {
   }
 
   // ✅ DATA EXISTS
-  const standings = table[0]?.standings?.[0];
+  const standings = table[0];
+  console.log("log hoc standing ", standings);
 
   return (
     <div className="p-4">
-      <h1 className="font-bold mb-4">Standings</h1>
-
-      {standings?.map((team, index) => (
-        <div
-          key={team.team.id}
-          className="flex justify-between items-center p-2 border-b"
-        >
-          {/* POSITION */}
-          <span>{team.rank}</span>
-
-          {/* TEAM */}
-          <div className="flex items-center gap-2">
-            <img src={team.team.logo} className="w-[20px]" />
-            <span>{team.team.name}</span>
+      <div className="  flex items-center justify-between">
+        <div className="flex gap-[20px]">
+          <div>
+            <h1>
+              <TagIcon />
+            </h1>
           </div>
+          <div>
+            <h1>Teams</h1>
+          </div>
+        </div>
+        <div className="flex gap-[20px]">
+          <div>
+            <h1>P</h1>
+          </div>
+          <div>
+            <h1>GB</h1>
+          </div>
+          <div>
+            <h1>PTS</h1>
+          </div>
+          <div>
+            <h1>W</h1>
+          </div>
+          <div>
+            <h1>D</h1>
+          </div>
+          <div>
+            <h1>L</h1>
+          </div>
+          <div>
+            <h1>F</h1>
+          </div>
+          <div>
+            <h1>A</h1>
+          </div>
+        </div>
+      </div>
 
-          {/* POINTS */}
-          <span>{team.points}</span>
+      {standings?.map((sta, index) => (
+        <div className="p-[30px] flex items-center justify-between">
+          <div className="flex gap-[20px]">
+            <div>
+              <h1>{sta?.position}</h1>
+            </div>
+            <div className="flex items-center gap-2">
+              <div>
+                <img
+                  className="w-[20px] h-[20px]"
+                  src={sta?.team?.logo}
+                  alt=""
+                />
+              </div>
 
-          {/* WINS */}
-          <span>{team.wins}</span>
-
-          {/* LOSSES */}
-          <span>{team.losses}</span>
+              <div>
+                <h1>{sta?.team?.name}</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-[20px]">
+            <div>
+              <h1>{sta?.games?.played}</h1>
+            </div>
+            <div>
+              <h1>{sta?.games?.lose_overtime?.total}</h1>
+            </div>
+            <div>
+              <h1>{sta?.points}</h1>
+            </div>
+            <div>
+              <h1>{sta?.games?.win?.total}</h1>
+            </div>
+            <div>
+              <h1>{sta?.games?.win_overtime?.total}</h1>
+            </div>
+            <div>
+              <h1>{sta?.games?.lose?.total}</h1>
+            </div>
+            <div>
+              <h1>{sta?.goals?.for}</h1>
+            </div>
+            <div>
+              <h1>{sta?.goals?.against}</h1>
+            </div>
+          </div>
         </div>
       ))}
     </div>

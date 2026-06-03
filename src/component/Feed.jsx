@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 export default function MyFeed() {
   return (
     <>
-      <div className="feedHadder flex gap-[20px] mt-[24px] lg:justify-between  items-center">
+      <div className="genPad feedHadder flex gap-[20px]  px-[32px]  mt-[24px] lg:justify-between  items-center">
         <NavLink
           to="/"
           className="feedTest text-[18px] font-[700]  bg-[#F5F5F5]  rounded-2xl p-4"

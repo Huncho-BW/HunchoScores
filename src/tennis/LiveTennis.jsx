@@ -8,93 +8,128 @@ export default function LiveTen() {
 
   const match = allmatches?.matchData || [];
 
-  // ✅ baseball live statuses
-  const liveStatuses = ["LIVE", "IN"];
+  // ✅ API-SPORTS BASEBALL LIVE STATUS
+  const isLive = (status) =>
+    [
+      "LIVE",
+      "IN1",
+      "IN2",
+      "IN3",
+      "IN4",
+      "IN5",
+      "IN6",
+      "IN7",
+      "IN8",
+      "IN9",
+    ].includes(status);
 
-  // ✅ check if ANY live match exists
-  const hasLiveMatch = match.some((item) =>
-    item?.games?.some((game) => liveStatuses.includes(game?.status?.short)),
+  // ✅ FILTER LEAGUES WITH LIVE GAMES
+  const liveMatches = match.filter((item) =>
+    item?.games?.some((game) => isLive(game?.status?.short)),
   );
 
-  // ✅ show once if no live match
-  if (!hasLiveMatch) {
+  // ✅ EMPTY STATE
+  if (!liveMatches.length) {
     return (
-      <div className="flex justify-center items-center h-[200px]">
-        <h1 className="text-gray-500 text-lg">No live baseball matches ⚾</h1>
+      <div className="flex flex-col items-center justify-center p-[40px] text-center">
+        <h1 className="text-xl font-bold">
+          No Live Baseball Matches Right Now
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          All games are either not started or already finished.
+        </p>
       </div>
     );
   }
 
   return (
     <>
-      {match?.map((item, index) => {
-        // ✅ filter ONLY live games
-        const liveGames = item?.games?.filter((game) =>
-          liveStatuses.includes(game?.status?.short),
-        );
-
-        // ❌ hide league if no live games
-        if (!liveGames?.length) return null;
-
+      {liveMatches.map((item, index) => {
         return (
           <div key={index} className="p-[24px]">
-            <div className="flex gap-[10px]">
-              <img
-                className="w-[20px] h-[20px]"
-                src={item?.logo || "/fallback.png"}
-                alt=""
-                onError={(e) => (e.target.src = "/fallback.png")}
-              />
+            {/* LEAGUE */}
+            <div className="flex gap-[20px] items-center">
+              <img className="w-[40px] h-[40px]" src={item?.logo} alt="" />
 
               <div className="flex flex-col">
-                <span>{item?.name}</span>
-                <span>{item?.country}</span>
+                <h1 className="h1Font">{item?.name}</h1>
+
+                <span className="spanFont">{item?.country}</span>
               </div>
             </div>
 
-            {liveGames.map((game, index) => {
-              return (
-                <NavLink to={`/baseball/match/summary/${game.id}`} key={index}>
-                  <div className="flex justify-between p-[24px] gap-[20px] w-full">
-                    {/* STATUS */}
-                    <div className="flex justify-start w-[100px]">
-                      <h1>{game?.status?.short}</h1>
-                    </div>
+            {/* LIVE GAMES ONLY */}
+            {item?.games
+              ?.filter((game) => isLive(game?.status?.short))
+              .map((game, index) => {
+                return (
+                  <NavLink
+                    to={`/baseball/match/summary/${game.id}`}
+                    key={index}
+                  >
+                    <div className="fTBoder liveMatch flex justify-between gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px]">
+                      {/* STATUS */}
+                      <div className="flex justify-between gap-[20px] items-center w-[100px]">
+                        <div className="flex flex-col gap-2">
+                          <h1 className="h1Font text-red-500 font-semibold">
+                            {game?.status?.short}
+                          </h1>
 
-                    <div className="flex w-full justify-between">
-                      {/* TEAMS */}
-                      <div className="flex flex-col">
-                        <div className="flex gap-1">
-                          <img
-                            className="w-[20px] h-[20px]"
-                            src={game?.teams?.home?.logo || "/fallback.png"}
-                            alt=""
-                            onError={(e) => (e.target.src = "/fallback.png")}
-                          />
-                          <h1>{game?.teams?.home?.name}</h1>
+                          <div className="flex justify-center">
+                            <div className="liveDot"></div>
+                          </div>
                         </div>
 
-                        <div className="flex gap-1">
-                          <img
-                            className="w-[20px] h-[20px]"
-                            src={game?.teams?.away?.logo || "/fallback.png"}
-                            alt=""
-                            onError={(e) => (e.target.src = "/fallback.png")}
-                          />
-                          <h1>{game?.teams?.away?.name}</h1>
+                        <div className="flex">
+                          <div className="divBorder"></div>
                         </div>
                       </div>
 
-                      {/* SCORE */}
-                      <div className="flex flex-col">
-                        <h1>{game?.scores?.home?.total ?? "-"}</h1>
-                        <h1>{game?.scores?.away?.total ?? "-"}</h1>
+                      {/* TEAMS + SCORE */}
+                      <div className="flex w-full justify-between">
+                        {/* TEAMS */}
+                        <div className="flex flex-col">
+                          <div className="flex items-center gap-1">
+                            <img
+                              className="w-[20px] h-[20px]"
+                              src={game?.teams?.home?.logo}
+                              alt=""
+                            />
+
+                            <h1 className="font-[600]">
+                              {game?.teams?.home?.name}
+                            </h1>
+                          </div>
+
+                          <div className="flex items-center gap-1">
+                            <img
+                              className="w-[20px] h-[20px]"
+                              src={game?.teams?.away?.logo}
+                              alt=""
+                            />
+
+                            <h1 className="font-[600]">
+                              {game?.teams?.away?.name}
+                            </h1>
+                          </div>
+                        </div>
+
+                        {/* SCORE */}
+                        <div className="flex flex-col items-center">
+                          <h1 className="h1Font font-[700]">
+                            {game?.scores?.home?.total ?? "-"}
+                          </h1>
+
+                          <h1 className="h1Font font-[700]">
+                            {game?.scores?.away?.total ?? "-"}
+                          </h1>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </NavLink>
-              );
-            })}
+                  </NavLink>
+                );
+              })}
           </div>
         );
       })}
