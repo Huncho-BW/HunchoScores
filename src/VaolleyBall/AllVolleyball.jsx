@@ -63,7 +63,7 @@ export default function AllVolleyball() {
                         <h1
                           className={`h1Font ${
                             isFinished(game.status.short)
-                              ? "bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold"
+                              ? "h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold"
                               : ""
                           }`}
                         >
@@ -90,7 +90,7 @@ export default function AllVolleyball() {
                           src={game?.teams?.home?.logo}
                           alt=""
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.teams?.home?.name}
                         </h1>
                       </div>
@@ -101,7 +101,7 @@ export default function AllVolleyball() {
                           src={game?.teams?.away?.logo}
                           alt=""
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.teams?.away?.name}
                         </h1>
                       </div>
@@ -109,11 +109,11 @@ export default function AllVolleyball() {
 
                     {/* SCORE */}
                     <div className="flex flex-col">
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {game?.scores?.home ?? "-"}
                       </h1>
 
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {game?.scores?.away ?? "-"}
                       </h1>
                     </div>

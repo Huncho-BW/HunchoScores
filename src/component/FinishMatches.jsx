@@ -7,7 +7,7 @@ export default function Finishmatch() {
   const Allmatches = useOutletContext();
   const allmatches = Allmatches;
 
-  const match = Object.values(allmatches)
+  const finishMatch = Object.values(allmatches)
     .flatMap((item) => item)
     // 🔥 Filter leagues that have at least one FT game
     .filter((league) =>
@@ -19,10 +19,21 @@ export default function Finishmatch() {
       games: league.games.filter((game) => game.fixture.status.short === "FT"),
     }));
 
+  if (finishMatch.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center p-[40px] text-center">
+        <h1 className="text-xl font-bold">No Finish Matches Right Now</h1>
+        <p className="text-gray-500 mt-2">
+          All games are either not finished or still lives.
+        </p>
+      </div>
+    );
+  }
+
   const getMatchTime = (game) => "FT"; // Only FT matters
   return (
     <>
-      {match.map((item, index) => {
+      {finishMatch.map((item, index) => {
         return (
           <div key={index} className="p-[24px]">
             <div className="relative flex flex-col gap-[10px]">
@@ -50,7 +61,7 @@ export default function Finishmatch() {
                     <div className="flex justify-between gap-[20px] items-center w-[100px]">
                       <div className="flex flex-col gap-2 justify-center">
                         <h1
-                          className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
+                          className=" h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
                                 : `h1Font text-left font-semibold"
                         >
                           {getMatchTime(game)}
@@ -70,7 +81,7 @@ export default function Finishmatch() {
                             src={game.teams.home.logo}
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game.teams.home.name}
                           </h1>
                         </div>
@@ -82,18 +93,18 @@ export default function Finishmatch() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game.teams.away.name}
                           </h1>
                         </div>
                       </div>
 
                       <div className="flex flex-col">
-                        <h1 className="text-center font-[700]">
+                        <h1 className="text-center spanFont">
                           {game.goals.home ?? "-"}
                         </h1>
 
-                        <h1 className="text-center font-[700]">
+                        <h1 className="text-center spanFont">
                           {game.goals.away ?? "-"}
                         </h1>
                       </div>

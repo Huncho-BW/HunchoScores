@@ -24,7 +24,6 @@ export default function VolTable() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["volTable", leagueId, season],
     queryFn: fetchStandings,
-    enabled: !!leagueId && !!season,
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -33,14 +32,13 @@ export default function VolTable() {
     return <div>Error occurred while fetching data.</div>;
   }
 
-  const volleyTable = data?.response?.[0]?.league?.standings?.[0] || [];
-
+  const volleyTable = data?.response[0] || [];
   console.log("log out volleyBall  table", volleyTable);
 
   return (
     <>
       {volleyTable?.length > 0 ? (
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-4 p-[20px]">
           {/* Note at top */}
           <p className="text-gray-500 text-sm">
             Note: This is not the latest season. Data shown is for {season}.
@@ -75,8 +73,8 @@ export default function VolTable() {
               </div>
 
               <div className="grid grid-cols-5 gap-4 w-2/3 text-center">
-                <span>{team?.played?.total ?? "-"}</span>
-                <span>{team?.win?.total ?? "-"}</span>
+                <span>{team?.games?.played ?? "-"}</span>
+                <span>{team?.games?.win?.total ?? "-"}</span>
                 <span>{team?.games?.lose?.total ?? "-"}</span>
                 <span>
                   {team?.goals?.for ?? "-"} / {team?.goals?.against ?? "-"}

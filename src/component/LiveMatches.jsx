@@ -30,10 +30,12 @@ export default function LiveMatches() {
   };
 
   // ✅ FILTER ONLY LIVE GAMES
-  const liveMatches = match.map((item) => ({
-    ...item,
-    games: item.games?.filter((game) => isLive(game.fixture.status.short)),
-  }));
+  const liveMatches = match
+    .map((item) => ({
+      ...item,
+      games: item.games?.filter((game) => isLive(game.fixture.status.short)),
+    }))
+    .filter((item) => item.games.length > 0);
 
   if (liveMatches.length === 0) {
     return (
@@ -99,7 +101,7 @@ export default function LiveMatches() {
                           alt=""
                         />
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.home.name}
                         </h1>
                       </div>
@@ -111,7 +113,7 @@ export default function LiveMatches() {
                           alt=""
                         />
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.away.name}
                         </h1>
                       </div>
@@ -119,11 +121,11 @@ export default function LiveMatches() {
 
                     {/* SCORE */}
                     <div className="flex flex-col">
-                      <h1 className="text-center font-[700]">
+                      <h1 className="text-center spanFont">
                         {game.goals.home ?? "-"}
                       </h1>
 
-                      <h1 className="text-center font-[700]">
+                      <h1 className="text-center spanFont">
                         {game.goals.away ?? "-"}
                       </h1>
                     </div>

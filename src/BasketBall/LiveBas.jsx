@@ -30,6 +30,8 @@ export default function LiveBas() {
     );
   }
 
+  console.log("log out live basketball", obj);
+
   return (
     <>
       {match?.map((item, index) => {
@@ -72,7 +74,7 @@ export default function LiveBas() {
                           className="w-[20px] h-[20px]"
                           src={game.teams.home.logo}
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.home.name}
                         </h1>
                       </div>
@@ -82,14 +84,14 @@ export default function LiveBas() {
                           src={game.teams.away.logo}
                           alt=""
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.away.name}
                         </h1>
                       </div>
                     </div>
 
                     <div className=" flex flex-col ">
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.home.quarter_1,
                           game.scores.home.quarter_2,
@@ -98,7 +100,7 @@ export default function LiveBas() {
                         ].reduce((a, b) => a + b, 0)}
                       </h1>
 
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.away.quarter_1,
                           game.scores.away.quarter_2,

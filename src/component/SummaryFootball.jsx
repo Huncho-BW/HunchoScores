@@ -67,7 +67,7 @@ export default function MatchFootballSummary() {
             </div>
 
             <div className="h-[134px] w-[100%]  mt-[24px] ">
-              <div className="flex items-center justify-center ">
+              <div className="flex items-center justify-around ">
                 <NavLink
                   to={`team/${item?.teams?.home?.id}/${item?.league?.name}/${item?.league?.season}`}
                 >
@@ -79,20 +79,22 @@ export default function MatchFootballSummary() {
                   </div>
                   <h1 className="h1Font">{item.teams.home.name}</h1>
                 </NavLink>
+
                 <div className="flex flex-col items-center">
-                  <div className="flex gap-2 items-center justify-center">
+                  <div className="flex gap-2 items-center ">
                     <h1>{item.goals.home}</h1>
                     <span className="mx-2">vs</span>
                     <h1>{item.goals.away}</h1>
                   </div>
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center ">
                     <h1>{getTimeMatch(item)}</h1>
                   </div>
                 </div>
+                {/* AWAY */}
                 <NavLink
                   to={`/team/${item?.teams?.away?.id}/${item?.league?.name}/${item?.league?.season}`}
                 >
-                  <div className="flex justify-center">
+                  <div className="flex justify-center ">
                     <img
                       className="w-[40px] h-[40px]"
                       src={item.teams?.away.logo}

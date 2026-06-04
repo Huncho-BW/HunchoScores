@@ -53,7 +53,7 @@ export default function FinishHoc() {
                     {/* STATUS + BORDER */}
                     <div className="flex justify-between gap-[20px] items-center w-[100px]">
                       <div className="w-[100px]">
-                        <span className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold">
+                        <span className="h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold">
                           FT
                         </span>
                       </div>
@@ -74,7 +74,7 @@ export default function FinishHoc() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.home?.name}
                           </h1>
                         </div>
@@ -86,7 +86,7 @@ export default function FinishHoc() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.away?.name}
                           </h1>
                         </div>
@@ -94,11 +94,11 @@ export default function FinishHoc() {
 
                       {/* SCORE */}
                       <div className="flex flex-col">
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.scores?.home ?? "-"}
                         </h1>
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.scores?.away ?? "-"}
                         </h1>
                       </div>

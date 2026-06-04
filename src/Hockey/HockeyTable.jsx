@@ -56,8 +56,8 @@ export default function HockeyTable() {
   return (
     <div className="p-4">
       <div className="  flex items-center justify-between">
-        <div className="flex gap-[20px]">
-          <div>
+        <div className="flex justify-between font-bold border-b pb-2">
+          <div className="w-1/3">
             <h1>
               <TagIcon />
             </h1>
@@ -66,7 +66,8 @@ export default function HockeyTable() {
             <h1>Teams</h1>
           </div>
         </div>
-        <div className="flex gap-[20px]">
+
+        <div className="grid grid-cols-8 gap-2 w-2/3 text-center">
           <div>
             <h1>P</h1>
           </div>
@@ -95,18 +96,14 @@ export default function HockeyTable() {
       </div>
 
       {standings?.map((sta, index) => (
-        <div className="p-[30px] flex items-center justify-between">
-          <div className="flex gap-[20px]">
+        <div className="flex justify-between items-center border-b py-2">
+          <div className="flex items-center gap-2 w-1/3">
             <div>
               <h1>{sta?.position}</h1>
             </div>
             <div className="flex items-center gap-2">
               <div>
-                <img
-                  className="w-[20px] h-[20px]"
-                  src={sta?.team?.logo}
-                  alt=""
-                />
+                <img className="w-6 h-6" src={sta?.team?.logo} alt="" />
               </div>
 
               <div>
@@ -114,7 +111,7 @@ export default function HockeyTable() {
               </div>
             </div>
           </div>
-          <div className="flex gap-[20px]">
+          <div className="grid grid-cols-8 gap-4 w-2/3 text-center">
             <div>
               <h1>{sta?.games?.played}</h1>
             </div>

@@ -78,7 +78,7 @@ export default function FootballH2H() {
                     <div className="flex justify-between gap-[20px] items-center w-[100px]">
                       <div className="flex flex-col gap-2 justify-center">
                         <h1
-                          className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
+                          className="h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
                                 : `h1Font text-left font-semibold"
                         >
                           FT
@@ -98,7 +98,7 @@ export default function FootballH2H() {
                             src={item.teams.home.logo}
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {item.teams.home.name}
                           </h1>
                         </div>
@@ -110,18 +110,18 @@ export default function FootballH2H() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {item.teams.away.name}
                           </h1>
                         </div>
                       </div>
 
                       <div className="flex flex-col">
-                        <h1 className="text-center font-[700]">
+                        <h1 className="text-center spanFont">
                           {item.goals.home ?? "-"}
                         </h1>
 
-                        <h1 className="text-center font-[700]">
+                        <h1 className="text-center spanFont">
                           {item.goals.away ?? "-"}
                         </h1>
                       </div>

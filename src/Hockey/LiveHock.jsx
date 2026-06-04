@@ -85,7 +85,7 @@ export default function LiveHoc() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.home?.name}
                           </h1>
                         </div>
@@ -97,7 +97,7 @@ export default function LiveHoc() {
                             alt=""
                           />
 
-                          <h1 className="text-center font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.away?.name}
                           </h1>
                         </div>
@@ -105,11 +105,11 @@ export default function LiveHoc() {
 
                       {/* SCORE */}
                       <div className="flex flex-col">
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.scores?.home ?? "-"}
                         </h1>
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game?.scores?.away ?? "-"}
                         </h1>
                       </div>

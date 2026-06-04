@@ -50,16 +50,13 @@ export default function BaseTable() {
     );
   }
   return (
-    <div className="p-4">
-      <div>
-        <h1>
-          Live standings for the current season are not available due to API
-          limitations. The table below shows the previous season standings.
-        </h1>
-      </div>
+    <div className="mt-6 space-y-4 p-[5px]">
+      <p className="text-gray-500 text-sm">
+        Note: This is not the latest season. Data shown is for {season}.
+      </p>
 
-      <div className=" p-[30px] flex items-center justify-between">
-        <div className="flex gap-[20px]">
+      <div className=" flex justify-between font-bold border-b pb-2">
+        <div className="flex gap-[6px] w-1/3">
           <div>
             <h1>
               <TagIcon />
@@ -69,22 +66,16 @@ export default function BaseTable() {
             <h1>Teams</h1>
           </div>
         </div>
-        <div className="flex gap-[20px]">
+
+        <div className="grid grid-cols-5 gap-2 w-2/3 text-center">
           <div>
             <h1>P</h1>
           </div>
-          <div>
-            <h1>GB</h1>
-          </div>
-          <div>
-            <h1>PTS</h1>
-          </div>
+
           <div>
             <h1>W</h1>
           </div>
-          <div>
-            <h1>D</h1>
-          </div>
+
           <div>
             <h1>L</h1>
           </div>
@@ -96,20 +87,17 @@ export default function BaseTable() {
           </div>
         </div>
       </div>
+
       {table.map((sta) => {
         return (
-          <div className="p-[30px] flex items-center justify-between">
-            <div className="flex gap-[20px]">
+          <div className="flex justify-between items-center border-b py-2">
+            <div className="flex items-center gap-2 w-1/3">
               <div>
                 <h1>{sta?.position}</h1>
               </div>
               <div className="flex items-center gap-2">
                 <div>
-                  <img
-                    className="w-[20px] h-[20px]"
-                    src={sta?.team?.logo}
-                    alt=""
-                  />
+                  <img className="w-6 h-6" src={sta?.team?.logo} alt="" />
                 </div>
 
                 <div>
@@ -117,7 +105,8 @@ export default function BaseTable() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-[20px]">
+
+            <div className="grid grid-cols-5 gap-2 w-2/3 text-center">
               <div>
                 <h1>{sta?.games?.played}</h1>
               </div>
@@ -128,10 +117,10 @@ export default function BaseTable() {
                 <h1>{sta?.games?.lose?.total}</h1>
               </div>
               <div>
-                <h1>{sta?.games?.lose?.percentage}</h1>
+                <h1>{sta?.points?.for}</h1>
               </div>
               <div>
-                <h1>{sta?.games?.win?.percentage}</h1>
+                <h1>{sta?.points?.against}</h1>
               </div>
             </div>
           </div>

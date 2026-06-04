@@ -50,7 +50,7 @@ export default function FinishBas() {
                 <div className="fTBoder  flex justify-between   gap-[20px] w-full pr-[10px] pl-[10px] pt-[8px] pb-[8px] ">
                   <div className="flex justify-between gap-[20px] items-center  w-[100px] ">
                     <div className="w-[100px]">
-                      <span className="bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold">
+                      <span className="h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold">
                         FT
                       </span>
                     </div>
@@ -66,7 +66,7 @@ export default function FinishBas() {
                           className="w-[20px] h-[20px]"
                           src={game.teams.home.logo}
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.home.name}
                         </h1>
                       </div>
@@ -76,14 +76,14 @@ export default function FinishBas() {
                           src={game.teams.away.logo}
                           alt=""
                         />
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.away.name}
                         </h1>
                       </div>
                     </div>
 
                     <div className=" flex flex-col ">
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.home.quarter_1,
                           game.scores.home.quarter_2,
@@ -92,7 +92,7 @@ export default function FinishBas() {
                         ].reduce((a, b) => a + b, 0)}
                       </h1>
 
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.away.quarter_1,
                           game.scores.away.quarter_2,

@@ -64,7 +64,7 @@ export default function AllTen() {
                           <h1
                             className={`h1Font ${
                               isFinished(game.status.short)
-                                ? "bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold"
+                                ? "h1Font bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold"
                                 : ""
                             }`}
                           >
@@ -94,7 +94,7 @@ export default function AllTen() {
                             alt=""
                           />
 
-                          <h1 className="font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.home?.name}
                           </h1>
                         </div>
@@ -106,7 +106,7 @@ export default function AllTen() {
                             alt=""
                           />
 
-                          <h1 className="font-[600]">
+                          <h1 className="text-center spanFont">
                             {game?.teams?.away?.name}
                           </h1>
                         </div>
@@ -114,11 +114,11 @@ export default function AllTen() {
 
                       {/* SCORE */}
                       <div className="flex flex-col items-center">
-                        <h1 className="h1Font font-[700]">
+                        <h1 className="spanFont text-center">
                           {game?.scores?.home?.total ?? "-"}
                         </h1>
 
-                        <h1 className="h1Font font-[700]">
+                        <h1 className="spanFont text-center">
                           {game?.scores?.away?.total ?? "-"}
                         </h1>
                       </div>

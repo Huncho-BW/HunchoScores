@@ -52,7 +52,7 @@ export default function AllBas() {
                   <div className="flex justify-between gap-[20px] items-center w-[100px]">
                     <div className="flex flex-col justify-center gap-2">
                       {game.status.short === "NS" ? (
-                        <h1 className="h1Font">{game.time}</h1>
+                        <h1 className="spanFont">{game.time}</h1>
                       ) : (
                         <h1
                           className={`h1Font ${
@@ -85,7 +85,7 @@ export default function AllBas() {
                           alt=""
                         />
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.home.name}
                         </h1>
                       </div>
@@ -97,14 +97,14 @@ export default function AllBas() {
                           alt=""
                         />
 
-                        <h1 className="text-center font-[600]">
+                        <h1 className="text-center spanFont">
                           {game.teams.away.name}
                         </h1>
                       </div>
                     </div>
 
                     <div className="flex flex-col">
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.home.quarter_1,
                           game.scores.home.quarter_2,
@@ -113,7 +113,7 @@ export default function AllBas() {
                         ].reduce((a, b) => a + b, 0)}
                       </h1>
 
-                      <h1 className="text-center font-[600]">
+                      <h1 className="text-center spanFont">
                         {[
                           game.scores.away.quarter_1,
                           game.scores.away.quarter_2,

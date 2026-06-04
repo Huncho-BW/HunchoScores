@@ -55,15 +55,14 @@ export default function FootballTable() {
 
   return (
     <>
-      <div>
-        <h1>
-          Live standings for the current season are not available due to API
-          limitations. The table below shows the previous season standings.
-        </h1>
+      <div className="mt-6 space-y-4 p-[20px]">
+        <p className="text-gray-500 text-sm">
+          Note: This is not the latest season. Data shown is for {season}.
+        </p>
       </div>
 
-      <div className=" p-[30px] flex items-center justify-between">
-        <div className="flex gap-[20px]">
+      <div className=" p-4 flex items-center justify-between">
+        <div className="flex justify-between font-bold border-b pb-2">
           <div>
             <h1>
               <TagIcon />
@@ -104,8 +103,8 @@ export default function FootballTable() {
         return (
           <div>
             {item.map((sta) => (
-              <div className="p-[30px] flex items-center justify-between">
-                <div className="flex gap-[20px]">
+              <div className="flex justify-between items-center border-b py-2">
+                <div className="flex items-center gap-2 w-1/3">
                   <div>
                     <h1>{sta?.rank}</h1>
                   </div>
@@ -123,7 +122,7 @@ export default function FootballTable() {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-[20px]">
+                <div className="grid grid-cols-8 gap-4 w-2/3 text-center">
                   <div>
                     <h1>{sta?.all?.played}</h1>
                   </div>
