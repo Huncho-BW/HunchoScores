@@ -101,8 +101,8 @@ export default function FoodballLeft() {
 
   return (
     <>
-      <div className="border border  border rounded-lg ">
-        <div className="border-b  px-[20px] py-[11px] flex items-center ">
+      <div className="border border   border rounded-lg ">
+        <div className="border-b  px-[20px] py-[11px] flex items-center  ">
           <span className="">
             <CiSearch size={30} />
           </span>
@@ -127,7 +127,7 @@ export default function FoodballLeft() {
             <NavLink
               to={`/team/${item?.team?.id}/${item?.league?.name}/${item?.league?.season}`}
               key={index}
-              className="flex gap-[10px] border  rounded-lg "
+              className="flex gap-[20px] border fTBoder mt-4 p-2  rounded-lg fTBoder "
             >
               <img
                 className="w-[50px] h-[50px]"
@@ -140,39 +140,6 @@ export default function FoodballLeft() {
               </div>
             </NavLink>
           ))}
-        </div>
-
-        <div className="px-[20px] py-[11px] mt-[10px]">
-          <div className="flex  justify-between">
-            <div>
-              <h1>Compitition</h1>
-            </div>
-            <div>
-              <FaArrowRight />
-            </div>
-          </div>
-          <div className="flex gap-[10px] border  rounded-lg ">
-            <h1>league logo</h1>
-            <div className=" flex flex-col">
-              <span>premiuer League</span>
-              <span>England</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="px-[20px] py-[11px] mt-[10px]">
-          <div className="flex  justify-between">
-            <div>
-              <h1>Region</h1>
-            </div>
-            <div>
-              <FaArrowRight />
-            </div>
-          </div>
-          <div className="flex gap-[10px] border  rounded-lg ">
-            <h1>Region logo</h1>
-            <span>England</span>
-          </div>
         </div>
       </div>
     </>

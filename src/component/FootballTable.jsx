@@ -45,7 +45,7 @@ export default function FootballTable() {
 
   if (!footBallTable?.length) {
     return (
-      <div className="flex items-center justify-center h-40">
+      <div className="flex items-center justify-center p-4">
         <p className="text-gray-500 text-lg font-semibold">
           Standings not available for this league on this plan 🚫
         </p>

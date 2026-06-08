@@ -82,13 +82,17 @@ export default function BassInfo() {
             <h1 className="whitespace-nowrap spanFont">
               <SlCalender />
             </h1>
-            <h1 className="whitespace-nowrap spanFont">{newDate}</h1>
+            <h1 className="whitespace-nowrap spanFont">
+              {newDate || "Unavalible "}
+            </h1>
           </div>
           <div className="flex gap-2 items-center">
             <h1 className="whitespace-nowrap spanFont">
               <MdOutlineStadium />
             </h1>
-            <h1>{BasSum.venue}</h1>
+            <h1 className="whitespace-nowrap spanFon">
+              {BasSum.venue || "Unavalible "}
+            </h1>
           </div>
           <div className="flex gap-2 items-center">
             <h1 className="whitespace-nowrap spanFont">

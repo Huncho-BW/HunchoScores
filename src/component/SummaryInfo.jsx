@@ -16,7 +16,11 @@ export default function SummaryInfo() {
   return (
     <>
       {match?.events?.length === 0 && (
-        <p className="text-center mt-4">No events yet</p>
+        <div className="flex items-center justify-center p-4">
+          <p className="text-gray-500 text-lg font-semibold">
+            No events avalibale{" "}
+          </p>
+        </div>
       )}
       {match?.events?.length > 0 && (
         <h1 className="text-center font-bold">Summary</h1>

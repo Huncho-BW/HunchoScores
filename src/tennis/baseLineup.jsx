@@ -64,7 +64,7 @@ export default function BaseLineup() {
 
   return (
     <>
-      <div>
+      <div className="mt-[24px] pl-[20px] pr-[20px] pt-[10px] pb-[10px] mb-[20px]">
         <h1>Sarting XI</h1>
 
         <div className="grid grid-cols-2  flex items-center  gap-4">

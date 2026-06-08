@@ -69,7 +69,7 @@ export default function MatchFootballSummary() {
             <div className="h-[134px] w-[100%]  mt-[24px] ">
               <div className="flex items-center justify-around ">
                 <NavLink
-                  to={`team/${item?.teams?.home?.id}/${item?.league?.name}/${item?.league?.season}`}
+                  to={`/team/${item?.teams?.home?.id}/${item?.league?.name}/${item?.league?.season}`}
                 >
                   <div className="flex justify-center">
                     <img

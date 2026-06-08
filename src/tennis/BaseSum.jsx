@@ -15,21 +15,12 @@ export default function BaseballSum() {
 
   return (
     <>
-      <div className="pl-[20px] pr-[20px]  mt-[20px] flex flex-col">
-        <div className="flex justify-between items-center">
+      <div className="flex  justify-between items-center mt-[24px] pl-[20px] pr-[20px] pt-[10px] pb-[10px] mb-[20px] ">
+        <div className=" ">
           <div>
             <h1 className="h1Font">Team</h1>
           </div>
 
-          <div className="flex gap-[10px]">
-            {homeIni.map((_, index) => (
-              <h1 className="text-center h1Font" key={index}>
-                {index + 1}
-              </h1>
-            ))}
-          </div>
-        </div>
-        <div className="flex justify-between items-center  ">
           <div className="">
             <div>
               <span className="spanFont">{obj[0]?.teams?.home?.name}</span>
@@ -38,23 +29,31 @@ export default function BaseballSum() {
               <span className="spanFont">{obj[0]?.teams?.away?.name}</span>
             </div>
           </div>
+        </div>
 
-          <div className="">
-            <div className="flex gap-[10px] ">
-              {homeIni.map((item, index) => (
-                <h1 className="text-center spanFont" key={index + 1}>
-                  {item ?? "-"}
-                </h1>
-              ))}
-            </div>
+        <div className="  ">
+          <div className="grid grid-cols-10 gap-4">
+            {homeIni.map((_, index) => (
+              <div key={index}>
+                <h1 className="text-center spanFont">{index + 1}</h1>
+              </div>
+            ))}
+          </div>
 
-            <div className=" flex gap-[10px]">
-              {awayIni.map((item, index) => (
-                <h1 className="text-center spanFont" key={index + 1}>
-                  {item ?? "-"}
-                </h1>
-              ))}
-            </div>
+          <div className="grid grid-cols-10 gap-4">
+            {homeIni.map((item, index) => (
+              <div key={index}>
+                <h1 className="text-center spanFont">{item ?? "-"}</h1>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-10 gap-4">
+            {awayIni.map((item, index) => (
+              <div key={index}>
+                <h1 className="text-center spanFont">{item ?? "-"}</h1>
+              </div>
+            ))}
           </div>
         </div>
       </div>

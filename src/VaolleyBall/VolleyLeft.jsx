@@ -121,7 +121,7 @@ export default function VolleyLeft() {
             </div>
           </div>
           {toShowTeam?.map((item, index) => (
-            <div className="flex gap-[10px] border  rounded-lg ">
+            <div className="flex gap-[10px] border fTBoder mt-4 p-2  rounded-lg ">
               <img className="w-[50px] h-[50px]" src={item?.logo} alt="" />
               <div className=" flex flex-col">
                 <span>{item?.name}</span>
@@ -129,21 +129,6 @@ export default function VolleyLeft() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="px-[20px] py-[11px] mt-[10px]">
-          <div className="flex  justify-between">
-            <div>
-              <h1>Region</h1>
-            </div>
-            <div>
-              <FaArrowRight />
-            </div>
-          </div>
-          <div className="flex gap-[10px] border  rounded-lg ">
-            <h1>Region logo</h1>
-            <span>England</span>
-          </div>
         </div>
       </div>
     </>

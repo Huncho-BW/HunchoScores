@@ -51,7 +51,11 @@ export default function FootballStats() {
     <>
       <h1 className="text-center font-bold">Stat</h1>
       {match?.events?.length === 0 && (
-        <p className="text-center mt-4">No events yet</p>
+        <div>
+          <p className="text-center mt-4 text-gray-500 text-lg font-semibold">
+            No events available{" "}
+          </p>
+        </div>
       )}
       {homeStat?.statistics.map((item, index) => {
         const awayStats = awayStat.statistics[index];

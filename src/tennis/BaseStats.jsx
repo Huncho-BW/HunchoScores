@@ -14,7 +14,7 @@ export default function BaseStats() {
   ];
   return (
     <>
-      <div className="mt-4">
+      <div className="mt-4 mt-[24px] pl-[20px] pr-[20px] pt-[10px] pb-[10px] mb-[20px] ">
         <h2>Match Stats</h2>
 
         <div className="grid grid-cols-3 gap-4">
