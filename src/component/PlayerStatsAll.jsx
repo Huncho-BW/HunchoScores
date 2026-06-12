@@ -12,6 +12,18 @@ export default function PlayerStatAll() {
     statTypes,
   } = useOutletContext();
 
+  const hasStats = league.length > 0;
+
+  if (!hasStats) {
+    return (
+      <div className="flex items-center justify-center h-[250px]">
+        <p className="text-gray-500 text-lg font-medium">
+          Player stats not available
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div>
@@ -21,19 +33,79 @@ export default function PlayerStatAll() {
           </button>
 
           {dropdown && (
-            <div className="absolute mt-[20px]  bg-white-600 shadow-md z-100 inset-0 overflow-hidden h-[100px] bg-gray-100 overflow-y-auto ">
-              {league?.map((item) => (
-                <li
-                  key={item}
-                  onClick={() => {
-                    setLeagueComp(item);
-                    setDropdown(false);
-                  }}
-                  className="p-2 cursor-pointer hover:bg-gray-200"
+            <div className="relative w-[280px] mb-6">
+              <button
+                onClick={() => setDropdown((prev) => !prev)}
+                className="
+      w-full
+      flex
+      items-center
+      justify-between
+      px-4
+      py-3
+      bg-white
+      border
+      border-gray-300
+      rounded-xl
+      shadow-sm
+      hover:border-blue-500
+      transition-all
+      duration-200
+    "
+              >
+                <span className="truncate">
+                  {leagueComp || "Select Competition"}
+                </span>
+
+                <span
+                  className={`transition-transform duration-200 ${
+                    dropdown ? "rotate-180" : ""
+                  }`}
                 >
-                  {item}
-                </li>
-              ))}
+                  ▼
+                </span>
+              </button>
+
+              {dropdown && (
+                <div
+                  className="
+        absolute
+        top-full
+        mt-2
+        w-full
+        bg-white
+        rounded-xl
+        shadow-lg
+        border
+        border-gray-200
+        max-h-[250px]
+        overflow-y-auto
+        z-50
+      "
+                >
+                  {league?.map((item) => (
+                    <div
+                      key={item}
+                      onClick={() => {
+                        setLeagueComp(item);
+                        setDropdown(false);
+                      }}
+                      className="
+            px-4
+            py-3
+            cursor-pointer
+            hover:bg-blue-50
+            transition-colors
+            border-b
+            border-gray-100
+            last:border-none
+          "
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

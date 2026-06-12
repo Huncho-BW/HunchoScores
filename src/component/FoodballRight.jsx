@@ -102,10 +102,14 @@ export default function FoodballRight({ seletedDate, setSelectedDate }) {
     queryKey: ["apiData", seletedDate, timezone],
     queryFn: fetchMatches,
     retry: 5,
-    retryDelay: 500,
-    staleTime: 1000 * 10 * 60,
+    retryDelay: 3000,
+    staleTime: 1000 * 3 * 60,
 
-    refetchOnWindowFocus: true,
+    gcTime: Infinity,
+
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false,
     refetchIntervalInBackground: false,
   });
 

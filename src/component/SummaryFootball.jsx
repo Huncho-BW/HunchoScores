@@ -108,22 +108,22 @@ export default function MatchFootballSummary() {
 
             <div>
               <div className="flex justify-around gap-1 ">
-                <NavLink className="spanFont" to="info">
+                <NavLink className="spanFont navSubText" to="info">
                   Info
                 </NavLink>
-                <NavLink className="spanFont" to={`summary`}>
+                <NavLink className="spanFont navSubText" to={`summary`}>
                   summary
                 </NavLink>
-                <NavLink className="spanFont" to="stats">
+                <NavLink className="spanFont navSubText" to="stats">
                   Stats
                 </NavLink>
-                <NavLink className="spanFont" to="lineUp">
+                <NavLink className="spanFont" to="lineUp navSubText">
                   Line -up
                 </NavLink>
-                <NavLink className="spanFont" to="table">
+                <NavLink className="spanFont  " to="table">
                   Table
                 </NavLink>
-                <NavLink className="spanFont" to="h2h">
+                <NavLink className="spanFont navSubText" to="h2h">
                   H 2 H
                 </NavLink>
               </div>

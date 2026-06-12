@@ -7,7 +7,7 @@ export default function ClubFixtures() {
 
   console.log("log the following club view ", id, leagueId, season);
 
-  const xxxKey = "6123d7ffb1095dda31a593ac87ad1232";
+  const xxxKey = "a5da1f14f44d0b283ae6a626383c0b6b";
 
   const fetchFix = async () => {
     const res = await axios.get("https://v3.football.api-sports.io/fixtures", {
@@ -75,7 +75,24 @@ export default function ClubFixtures() {
           ))}
         </div>
       ) : (
-        <p>No fixtures available for this team on free plan.</p>
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="bg-white shadow-md rounded-2xl p-8 max-w-lg text-center">
+            <div className="text-6xl mb-4">📅</div>
+
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+              No Fixtures Found
+            </h1>
+
+            <p className="text-gray-500">
+              There are currently no upcoming fixtures available for this team.
+            </p>
+
+            <p className="text-sm text-gray-400 mt-3">
+              This can happen when the season has ended or the API free plan
+              doesn't provide fixture data for the selected competition.
+            </p>
+          </div>
+        </div>
       )}
     </>
   );

@@ -11,10 +11,7 @@ export default function MyFeed() {
         >
           Football
         </NavLink>
-        <NavLink
-          to="/basket"
-          className="feedTest text-[18px] font-[700] bg-[#F5F5F5]  rounded-2xl  p-4"
-        >
+        <NavLink to="/basket" className="feedTest  p-4">
           BasketBall
         </NavLink>
         <NavLink

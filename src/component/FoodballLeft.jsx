@@ -57,9 +57,10 @@ export default function FoodballLeft() {
     isError: searchTeamsIsError,
     error: searchTeamError,
   } = useQuery({
-    queryKey: ["searchTeams"],
+    queryKey: ["searchTeams", debouncedSearchTerm],
     queryFn: handleSearch,
     enabled: !!debouncedSearchTerm,
+    staleTime: 1000 * 60 * 60 * 24,
   });
 
   const {
@@ -70,6 +71,12 @@ export default function FoodballLeft() {
   } = useQuery({
     queryKey: ["defaultTeams"],
     queryFn: handleDefaultTeams,
+    staleTime: Infinity,
+    gcTime: Infinity,
+
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
 
   const toShowTeam =

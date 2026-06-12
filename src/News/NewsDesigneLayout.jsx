@@ -2,7 +2,7 @@ import React from "react";
 
 export default function NewsDesigneLayout({ homedata }) {
   return (
-    <div className="flex-col justify-center grid grid-cols-2 grid-rows-2 gap-[20px]">
+    <div className="flex-col justify-center grid grid-cols-2 grid-rows-2 gap-[20px] newDesing">
       {homedata?.map((item, index) => (
         <a
           key={index}

@@ -36,10 +36,7 @@
 height: 20px;
   
 }
-.liveBoder{
- 
- 
-}
+
 
 .infoboder{
   padding-left: 10px;
@@ -47,6 +44,8 @@ height: 20px;
   border: 1px solid black;
   border-radius: 8px;
 }
+
+
 
 .fTBoder {
   background: white;
@@ -64,6 +63,7 @@ height: 20px;
 }
 
 
+
 .fTBoder {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -72,6 +72,18 @@ height: 20px;
   display: flex;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+}
+
+.feedTest:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.feedTest.active {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
 }
 
 /* LIVE state */
@@ -116,6 +128,50 @@ height: 20px;
         .icon-size{
           font-size: xx-large !important;
         }
+
+                .navText {
+                  font-size: large;
+                  font-weight: 700;
+                  padding: 5px;
+        
+                }
+         
+.navText.active {
+  position: relative;
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.navText.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  border-radius: 999px;
+  background: #16a34a;
+}
+                .feedTest {
+                  font-size:larger;
+                  font-weight: 700;
+                  padding: 8px;
+                  background: #ffffff;
+                  border: 1px solid #e5e7eb;
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+                  transition: all 0.3s ease;
+                  border-radius: 16px;
+        
+                }
+
+                                 .navSubText.active {
+                                   font-size: larger;
+                                   font-weight: 700;
+                                   padding: 8px;
+                                   border-radius: 20px;
+                                   background: #ffffff;
+                                   border: 1px solid #e5e7eb;
+                                 }
 }
 
 @media (min-width: 641px) and (max-width: 1023px) {
@@ -131,12 +187,24 @@ height: 20px;
      font-size: larger;
   
     }
+
+        .navText {
+          font-size: medium;
+          font-weight: 600;
+          padding: 10px;
+          margin: 0;
+    
+        }
   
     .feedTest {
       font-size: large;
       font-weight: 700;
       padding: 8px;
-  
+      background: #ffffff;
+        border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-radius: 16px;
     }
   
   
@@ -179,7 +247,8 @@ height: 20px;
 
          .dropdwon {
            z-index: 1000;
-           background-color: whitesmoke;
+          background: #ffffff;
+            border: 1px solid #e5e7eb;
            display: flex;
            flex-direction: column;
            position: absolute;
@@ -222,6 +291,18 @@ height: 20px;
          .rotate-close {
            transform: rotate(0deg);
          }
+
+
+                    .navSubText.active {
+                      font-size: large;
+                      font-weight: 700;
+                      padding: 8px;
+                      border-radius: 20px;
+                      background: #ffffff;
+                      border: 1px solid #e5e7eb;
+                    }
+
+      
 }
 
 
@@ -249,6 +330,11 @@ height: 20px;
     font-size: small;
     font-weight: 700;
     padding: 8px;
+    background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-radius: 16px;
   
   }
 
@@ -281,6 +367,7 @@ height: 20px;
       font-weight: 700;
       padding: 8px;
   }
+  
 
 .h1Font {
   font-weight: 400;
@@ -295,11 +382,29 @@ white-space: nowrap;
   font-size: small;
   white-space: nowrap;
 }
+
+ .newFeed {
+   
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  
+  padding:10px ;
+
+ }
+
+ .newDesing{
+  display: block;
+  padding: 30px;
+  
+ }
+
   
 
     .dropdwon {
       z-index: 1000;
-      background-color: whitesmoke;
+      background: #ffffff;
+        border: 1px solid #e5e7eb;
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -346,9 +451,18 @@ white-space: nowrap;
   .navText{
     font-size: medium;
     font-weight: 600;
-    padding: 20px;
+    padding: 10px;
     margin: 0;
 
+  }
+
+  .navSubText.active{
+    font-size: small;
+      font-weight: 700;
+      padding: 8px;
+      border-radius: 20px;
+      background: #ffffff;
+        border: 1px solid #e5e7eb;
   }
 }
 

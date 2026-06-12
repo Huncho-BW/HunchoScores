@@ -133,6 +133,7 @@ const routeConfig = [
                 element: <MyClubMatches />,
                 children: [
                   { index: true, element: <ClubResult /> },
+
                   { path: "fixture", element: <ClubFixtures /> },
 
                   {
@@ -142,6 +143,7 @@ const routeConfig = [
                   },
                 ],
               },
+
               {
                 path: "playerstat",
                 element: <FootBallPlayerStats />,

@@ -36,46 +36,46 @@ export default function FootballIineUp() {
 
   return (
     <>
-      <div>
-        <h1>Sarting XI</h1>
+      <div className="p-[12px] md:p-[20px]  lg:-[32px]">
+        <h1 className="h1Font ">Sarting XI</h1>
 
         <div className="grid grid-cols-2  flex items-center  gap-4">
           <div className="flex flex-col items-center gap-2">
             {homeStartingXI?.map((start) => (
-              <h1>{start?.player?.name}</h1>
+              <h1 className="spanFont text-left">{start?.player?.name}</h1>
             ))}
           </div>
 
           <div className="flex flex-col items-center gap-2">
             {awayStartingXI?.map((awyStart) => (
-              <h1>{awyStart?.player?.name}</h1>
+              <h1 className="spanFont text-left">{awyStart?.player?.name}</h1>
             ))}
           </div>
         </div>
 
-        <h1>Substitute players</h1>
+        <h1 className="mt-3 mb-3 h1Font ">Substitute players</h1>
 
         <div className="grid grid-cols-2 flex items-center  gap-4">
           <div className="flex flex-col items-center gap-2">
             {homeSub?.map((sub) => (
-              <h1>{sub?.player?.name}</h1>
+              <h1 className="spanFont text-left">{sub?.player?.name}</h1>
             ))}
           </div>
 
           <div className="flex flex-col items-center gap-2">
             {awaySub?.map((awySub) => (
-              <h1>{awySub?.player?.name}</h1>
+              <h1 className="spanFont text-left">{awySub?.player?.name}</h1>
             ))}
           </div>
         </div>
 
-        <h1>Coaches</h1>
+        <h1 className="mt-3 mb-3 h1Font ">Coaches</h1>
         <div className="grid grid-cols-2 flex items-center  gap-4">
           <div className="flex flex-col items-center gap-2">
-            <h1>{homeCoach}</h1>
+            <h1 className="spanFont text-left">{homeCoach}</h1>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <h1>{awayCoach}</h1>
+            <h1 className="spanFont text-left">{awayCoach}</h1>
           </div>
         </div>
       </div>

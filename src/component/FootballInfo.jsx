@@ -31,7 +31,7 @@ export default function FootballInfo() {
             <GiWhistle />
           </span>
           <h1 className="whitespace-nowrap spanFont">
-            {match.fixture.referee}
+            {match.fixture.referee || "Unavailable"}
           </h1>
         </div>
         <div className="flex items-center gap-1">
@@ -39,7 +39,7 @@ export default function FootballInfo() {
             <MdOutlineStadium />
           </span>
           <h1 className="whitespace-nowrap spanFont">
-            {match.fixture.venue.name}
+            {match.fixture.venue.name || "Unavailable"}
           </h1>
         </div>
         <div className="flex items-center gap-1">
@@ -47,7 +47,7 @@ export default function FootballInfo() {
             <FaCity />
           </span>
           <h1 className="whitespace-nowrap spanFont">
-            {match.fixture.venue.city}
+            {match.fixture.venue.city || "Unavailable"}
           </h1>
         </div>
       </div>

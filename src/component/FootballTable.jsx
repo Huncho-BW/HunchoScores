@@ -23,7 +23,7 @@ export default function FootballTable() {
       },
     );
 
-    return respond.data?.response;
+    return respond.data;
   };
 
   const { data, isLoading, isError, error } = useQuery({
@@ -47,7 +47,8 @@ export default function FootballTable() {
     return (
       <div className="flex items-center justify-center p-4">
         <p className="text-gray-500 text-lg font-semibold">
-          Standings not available for this league on this plan 🚫
+          This season is unavailable on the current plan 🚫. Upgrade to Premium
+          for full access to the latest seasons and data.
         </p>
       </div>
     );

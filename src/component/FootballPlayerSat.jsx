@@ -12,7 +12,7 @@ export default function FootBallPlayerStats() {
   const [leagueComp, setLeagueComp] = useState();
   const [dropdown, setDropdown] = useState(false);
 
-  const xxxKey = "6123d7ffb1095dda31a593ac87ad1232";
+  const xxxKey = "a5da1f14f44d0b283ae6a626383c0b6b";
 
   const fetchSquad = async () => {
     const res = await axios.get(
