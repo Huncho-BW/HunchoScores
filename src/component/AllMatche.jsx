@@ -83,10 +83,10 @@ export default function Allmatches() {
                         <h1
                           className={
                             isLive(game.fixture.status.short)
-                              ? `spanFont  font-semibold text-left text-red-500`
+                              ? `yyy  font-semibold text-left text-red-500`
                               : isFinished(game.fixture.status.short)
                                 ? `bg-gray-700 text-white px-2 py-1 rounded text-xs font-bold`
-                                : `spanFont  text-left font-semibold`
+                                : `yyy  text-left font-semibold`
                           }
                         >
                           {getMatchTime(game)}

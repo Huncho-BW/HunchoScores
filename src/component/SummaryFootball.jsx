@@ -117,10 +117,10 @@ export default function MatchFootballSummary() {
                 <NavLink className="spanFont navSubText" to="stats">
                   Stats
                 </NavLink>
-                <NavLink className="spanFont" to="lineUp navSubText">
+                <NavLink className="spanFont  navSubText" to="lineUp">
                   Line -up
                 </NavLink>
-                <NavLink className="spanFont  " to="table">
+                <NavLink className="spanFont navSubText  " to="table">
                   Table
                 </NavLink>
                 <NavLink className="spanFont navSubText" to="h2h">

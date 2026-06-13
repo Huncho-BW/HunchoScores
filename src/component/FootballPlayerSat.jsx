@@ -100,26 +100,36 @@ export default function FootBallPlayerStats() {
 
   return (
     <>
-      <div className="p-[32px]">
-        <div className="flex gap-2">
+      <div className="px-[20px]">
+        <div className="flex gap-2 md:gap-[25px]">
           <div>
-            <NavLink to="playerStatsAll">All</NavLink>
+            <NavLink className="spanFont  navSubText" to="playerStatsAll">
+              All
+            </NavLink>
           </div>
           <div className="flex gap-2">
-            <NavLink to="topScore">Top Score</NavLink>
+            <NavLink className="spanFont  navSubText" to="topScore">
+              Top Score
+            </NavLink>
             <div>
-              <NavLink to="topAssit">Top Assit</NavLink>
+              <NavLink className="spanFont  navSubText" to="topAssit">
+                Top Assit
+              </NavLink>
             </div>
             <div>
-              <NavLink to="yellowCard">Yellow Card</NavLink>
+              <NavLink className="spanFont  navSubText" to="yellowCard">
+                Yellow Card
+              </NavLink>
             </div>
             <div>
-              <NavLink to="redCard">Red Card</NavLink>
+              <NavLink className="spanFont  navSubText" to="redCard">
+                Red Card
+              </NavLink>
             </div>
           </div>
         </div>
 
-        <div>
+        <div className="mt-[20px]">
           <Outlet
             context={{
               id,

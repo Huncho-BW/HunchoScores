@@ -99,13 +99,13 @@ export default function HockeySumm() {
         {/* NAV */}
         <div>
           <div className="flex gap-2">
-            <NavLink className="h1Font" to="HocInfo">
+            <NavLink className="spanFont  navSubText" to="HocInfo">
               Info
             </NavLink>
-            <NavLink className="h1Font" to="HocSummary">
+            <NavLink className="spanFont  navSubText" to="HocSummary">
               Summary
             </NavLink>
-            <NavLink className="h1Font" to="HocTable">
+            <NavLink className="spanFont  navSubText" to="HocTable">
               Table
             </NavLink>
           </div>

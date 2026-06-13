@@ -37,7 +37,7 @@ export default function ClubResult() {
   return (
     <>
       {teamRes?.map((item) => (
-        <div className="p-[24px]">
+        <div className="mt-[24px]">
           <div className="relative flex flex-col gap-[10px]">
             <div className="flex gap-[20px]">
               <img

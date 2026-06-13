@@ -106,11 +106,11 @@ export default function BasketSumm() {
 
       <div>
         <div className="flex  gap-2 ">
-          <NavLink className="h1Font" to="Bassinfo">
+          <NavLink className="spanFont  navSubText" to="Bassinfo">
             Info
           </NavLink>
 
-          <NavLink className="h1Font" to="BassTable">
+          <NavLink className="spanFont  navSubText" to="BassTable">
             Table
           </NavLink>
         </div>

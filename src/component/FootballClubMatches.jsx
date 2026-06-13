@@ -8,10 +8,14 @@ export default function MyClubMatches() {
       <div className=" p-[32px]">
         <div className="flex gap-[20px]">
           <div>
-            <NavLink to="fixture">Fixture</NavLink>
+            <NavLink className="spanFont  navSubText" to="fixture">
+              Fixture
+            </NavLink>
           </div>
           <div>
-            <NavLink to="resultClub">Result</NavLink>
+            <NavLink className="spanFont  navSubText" to="resultClub">
+              Result
+            </NavLink>
           </div>
         </div>
 

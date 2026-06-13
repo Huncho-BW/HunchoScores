@@ -36,7 +36,7 @@ export default function ClubFixtures() {
   return (
     <>
       {hasFixtures ? (
-        <div className="p-[32px]">
+        <div className="mt-[24px]">
           {/* Your fixture HTML structure */}
           {data.response.map((match) => (
             <div

@@ -27,7 +27,7 @@ export default function PlayerStatAll() {
   return (
     <>
       <div>
-        <div className="relative ">
+        <div className="relative mt-[10px] mb-[10px] ">
           <button onClick={() => setDropdown((prev) => !prev)}>
             {leagueComp}
           </button>

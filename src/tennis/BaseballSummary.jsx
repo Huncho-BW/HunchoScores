@@ -107,13 +107,13 @@ export default function BaseballSummary() {
         {/* NAV */}
         <div>
           <div className="flex gap-2">
-            <NavLink className="h1Font" to="baseMatch">
+            <NavLink className="spanFont  navSubText" to="baseMatch">
               Match
             </NavLink>
-            <NavLink className="h1Font" to="baseH2H">
+            <NavLink className="spanFont  navSubText" to="baseH2H">
               H2H
             </NavLink>
-            <NavLink className="h1Font" to="baseTable">
+            <NavLink className="spanFont  navSubText" to="baseTable">
               Table
             </NavLink>
           </div>

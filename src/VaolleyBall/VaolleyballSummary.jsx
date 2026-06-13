@@ -98,16 +98,16 @@ export default function VaolleyballSummary() {
         {/* NAV */}
         <div>
           <div className="flex gap-2">
-            <NavLink className="h1Font" to="volInfo">
+            <NavLink className="spanFont  navSubText" to="volInfo">
               Info
             </NavLink>
-            <NavLink className="h1Font" to="volSummary">
+            <NavLink className="spanFont  navSubText" to="volSummary">
               Summary
             </NavLink>
-            <NavLink className="h1Font" to="volHeadToHead">
+            <NavLink className="spanFont  navSubText" to="volHeadToHead">
               Head to Head
             </NavLink>
-            <NavLink className="h1Font" to="volTable">
+            <NavLink className="" to="volTable">
               Table
             </NavLink>
           </div>

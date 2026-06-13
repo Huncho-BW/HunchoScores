@@ -11,7 +11,7 @@ export default function BassInfo() {
   console.log("bass sum", BasSum);
   return (
     <>
-      <div className="flex  justify-between items-center mt-[24px] pl-[20px] pr-[20px] pt-[10px] pb-[10px] mb-[20px] ">
+      <div className="flex  justify-between items-center mt-[24px] py-[20px]  mb-[20px] ">
         {/* header */}
         <div className="">
           <div>

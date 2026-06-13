@@ -302,7 +302,11 @@ height: 20px;
                       border: 1px solid #e5e7eb;
                     }
 
-      
+   
+     .yyy {
+       font-weight: 400;
+       font-size: small;
+     }
 }
 
 
@@ -370,8 +374,8 @@ height: 20px;
   
 
 .h1Font {
-  font-weight: 400;
-font-size:large;
+  font-weight: 700;
+font-size:small;
 
 white-space: nowrap;
 
@@ -381,6 +385,11 @@ white-space: nowrap;
   font-weight: 400;
   font-size: small;
   white-space: nowrap;
+}
+
+.yyy{
+  font-weight: 400;
+    font-size: small;
 }
 
  .newFeed {
@@ -458,8 +467,9 @@ white-space: nowrap;
 
   .navSubText.active{
     font-size: small;
+    
       font-weight: 700;
-      padding: 8px;
+      padding:5px;
       border-radius: 20px;
       background: #ffffff;
         border: 1px solid #e5e7eb;

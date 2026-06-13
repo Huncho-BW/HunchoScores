@@ -61,10 +61,14 @@ export default function FootballClub() {
           */}
 
           <div>
-            <NavLink to="matches">Matches</NavLink>
+            <NavLink className="spanFont  navSubText" to="matches">
+              Matches
+            </NavLink>
           </div>
           <div>
-            <NavLink to="playerstat">Player Stats</NavLink>
+            <NavLink className="spanFont  navSubText" to="playerstat">
+              Player Stats
+            </NavLink>
           </div>
         </div>
       </div>
