@@ -1,4 +1,11 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+
+body{
+  font-family: 'Libre Baskerville';
+}
+
 .custom-date {
   position: relative;
   color: transparent;
@@ -120,6 +127,8 @@ height: 20px;
   }
 }
 
+ 
+
 @media (min-width: 1024px)  {
     .hiddenmenu {
             display: none;
@@ -172,7 +181,49 @@ height: 20px;
                                    background: #ffffff;
                                    border: 1px solid #e5e7eb;
                                  }
+
+           .pos{
+            display: block;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+          top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+           }  
+
+
+           .lanPos{
+            position: absolute;
+            inset: 0;
+            z-index: 100;
+            top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            
+           }
+                         .managementSize {
+                           height: 440px;
+                           width: 100%;
+                           width: 575px;
+                           flex: 1 1 575px
+                         }
+
+
+        .H1SetFont{
+          font-size: x-large;
+         
+          font-weight: 700;
+          
+        }      
+        
+        .setFont{
+          font-size: large;
+          
+        }
 }
+
+
 
 @media (min-width: 641px) and (max-width: 1023px) {
   .hiddenHeader {
@@ -307,6 +358,45 @@ height: 20px;
        font-weight: 400;
        font-size: small;
      }
+
+            .pos {
+              display: block;
+              position: fixed;
+              inset: 0;
+              z-index: 100;
+              top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              
+      
+            }
+
+         .lanPos{
+          position: absolute;
+          inset: 0;
+          z-index: 100;
+          top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+         }
+                        .managementSize {
+                          height: 440px;
+                          width: 100%;
+                          width: 575px;
+                        flex : 1 1 400px
+                        }
+
+                    .H1SetFont {
+                      font-size: x-large;
+          
+                      font-weight: 700;
+          
+                    }
+          
+                    .setFont {
+                      font-size: large;
+                     
+                    }
 }
 
 
@@ -474,5 +564,41 @@ white-space: nowrap;
       background: #ffffff;
         border: 1px solid #e5e7eb;
   }
+ .pos {
+   display: block;
+   position: fixed;
+   inset: 0;
+   z-index: 100;
+    top: 0;
+      left: 2;
+
+ }
+
+ .lanPos{
+  display: block;
+  position: absolute;
+  z-index: 100;
+  inset: 0;
+  left: 2;
+
+ }
+ .managementSize {
+   height: 440px;
+   width: 100%;
+   flex: 1 1 400px;
+ }
+
+    .H1SetFont {
+      font-size: x-large;
+  
+      font-weight: 600;
+  
+    }
+  
+    .setFont {
+      font-size: large;
+      
+    }
+
 }
 

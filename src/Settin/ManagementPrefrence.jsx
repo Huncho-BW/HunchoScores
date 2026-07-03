@@ -7,7 +7,7 @@ export default function ManagementPrefrence({ setDropDown }) {
   const [dropdwonTwo, setDropDwonTwo] = useState(false);
 
   return (
-    <div className="flex flex-col  h-[100%] h-[440px]  p-[20px]   w-[40%] max-w-[575px] min-w-[575px] border  bg-[#222222]   ">
+    <div className="flex flex-col   managementSize  p-[20px]    border  bg-[#222222]   ">
       <div className="border-b px-[30px] py-[10px] border-[#e9e9e9] flex justify-between gap-[20px]">
         <div className="flex gap-[10px]">
           <h1 className="text-white">Huncho </h1>
@@ -23,7 +23,7 @@ export default function ManagementPrefrence({ setDropDown }) {
           <h1 className="text-[#AAAAAA] font-[700] mb-[10px] mt-[10px]">
             About your Personal Information
           </h1>
-          <p className="text-[#AAAAAA] text-[13px] ">
+          <p className="text-[#AAAAAA] text-[13px]  ">
             When you visit our website, we store cookies on your browser to
             collect information. The information collected might relate to you,
             your preferences or your device, and is mostly used to make the site
@@ -180,7 +180,10 @@ export default function ManagementPrefrence({ setDropDown }) {
 
         <div className="border-t border-[#e9e9e9] w-[100%] flex justify-end">
           <div className="flex mt-[15px] mb-[15px] mr-[20px] min-h-[40px] bg-[#ff6b00] border border-[#ff6b00]  h-[40px] ">
-            <button className="pl-[30px] pr-[30px] whitespace-nowrap font-[] rounded-xs">
+            <button
+              onClick={() => setDropDown(false)}
+              className="pl-[30px] pr-[30px] whitespace-nowrap font-[] rounded-xs"
+            >
               comfire my cookies
             </button>
           </div>

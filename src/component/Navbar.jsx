@@ -5,8 +5,15 @@ import LanguageIcon from "@mui/icons-material/Language";
 import InfoIcon from "@mui/icons-material/Info";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Lang from "../Languag/Lang";
+import { useContext } from "react";
+import { LanguageContext } from "../Context/LanguageContext";
+import { useTranslation } from "react-i18next";
 export default function MyNavbar() {
+  const { language } = useContext(LanguageContext);
+  const [dropdown, setDropDown] = useState(false);
   const [dropDwon, setDropDwon] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className=" px-[32px]  py-[16px] gap-[20px] flex items-center border w-full width-[100%] ">
@@ -31,13 +38,13 @@ export default function MyNavbar() {
         } flex justify-start gap-[20px] w-full`}
       >
         <NavLink to="/" className=" navText text-[24px] font-[400]">
-          Scores
+          {t("scores")}
         </NavLink>
         <NavLink to="/news" className=" navText text-[24px] font-[400]">
-          News
+          {t("news")}
         </NavLink>
         <NavLink to="/fav" className="navText text-[24px] font-[400]">
-          Favourites
+          {t("favourites")}
         </NavLink>
       </div>
 
@@ -45,9 +52,17 @@ export default function MyNavbar() {
         <NavLink to="/liv" className="text-[24px] font-[400]">
           <InfoIcon className="icon-size" />
         </NavLink>
-        <NavLink to="/lan" className="text-[24px] font-[400]">
+        <NavLink
+          className=" relative   mt-1 flex flex-col justify-center items-center text-[24px] font-[400]"
+          onClick={() => setDropDown(!false)}
+        >
           <LanguageIcon className="icon-size" />
         </NavLink>
+        {dropdown && (
+          <div className="lanPos">
+            <Lang setDropDown={setDropDown} />
+          </div>
+        )}
         <NavLink to="/set" className="text-[24px] font-[400]">
           <SettingsIcon className="icon-size" />
         </NavLink>

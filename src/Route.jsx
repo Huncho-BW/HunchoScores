@@ -84,7 +84,7 @@ import NewsFootball from "./News/NewsFootball";
 import NewsHockey from "./News/NewsHockey";
 
 import NewsHome from "./News/NewsHome";
-
+import Lang from "./Languag/Lang";
 import NewsVaolleyball from "./News/NewsVaolleyball";
 import LiveScore from "./LiveScore/Livesocere";
 import VoalleyBallHeadToHead from "./VaolleyBall/VaolleyballHeadToHead";
