@@ -37,14 +37,19 @@ export default function MyNavbar() {
           dropDwon ? `dropdwon ` : `hiddenHeader  `
         } flex justify-start gap-[20px] w-full`}
       >
-        <NavLink to="/" className=" navText text-[24px] font-[400]">
+        <NavLink to="/" className="group  text-[18px] font-[400]">
           {t("scores")}
+          <div className="h-[2px] bg-white w-0 transition-all duration-300 group-hover:w-full" />
         </NavLink>
-        <NavLink to="/news" className=" navText text-[24px] font-[400]">
+
+        <NavLink to="/news" className="group text-[18px] font-[400]">
           {t("news")}
+          <div className="h-[2px] bg-white w-0 transition-all duration-300 group-hover:w-full" />
         </NavLink>
-        <NavLink to="/fav" className="navText text-[24px] font-[400]">
+
+        <NavLink to="/fav" className="group  text-[18px] font-[400]">
           {t("favourites")}
+          <div className="h-[2px] bg-white w-0 transition-all duration-300 group-hover:w-full" />
         </NavLink>
       </div>
 

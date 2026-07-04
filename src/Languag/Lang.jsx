@@ -22,13 +22,20 @@ export default function Lang({ setDropDown }) {
       <div className="flex flex-col">
         {Languages?.map((lang) => (
           <button
+            key={lang.code}
             onClick={() => {
               setLanguage(lang.code);
               setDropDown(false);
             }}
-            key={lang.code}
+            className="group text-white py-[10px] text-left"
           >
-            {lang.name}
+            <span>{lang.name}</span>
+
+            <div
+              className={`h-[2px] bg-white transition-all duration-300 ${
+                language === lang.code ? "w-full" : "w-0 group-hover:w-full"
+              }`}
+            />
           </button>
         ))}
       </div>
